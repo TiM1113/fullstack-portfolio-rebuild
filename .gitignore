@@ -47,3 +47,12 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# Playwright MCP snapshots
+.playwright-mcp/
+
+# Worktree branches
+.claude/worktrees/
+
+# Codex review stamp
+.codex-review-stamp

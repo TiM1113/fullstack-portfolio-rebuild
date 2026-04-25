@@ -1,0 +1,207 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e8]:
+        - heading "Edu Calvo - Portfolio" [level=1] [ref=e9]
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "avatar Eduardo Calvo López" [ref=e11]
+        - generic [ref=e12]:
+          - text: Edu Calvo - Portfolio
+          - text: Diseñador web y Frontend con sede en Madrid
+        - paragraph [ref=e13]:
+          - generic [ref=e14]: Disponible para nuevos proyectos
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - link "Seguir en Twitter" [ref=e23] [cursor=pointer]:
+              - /url: https://twitter.com/educalvolpz
+              - img [ref=e24]
+          - generic [ref=e26]:
+            - img [ref=e27]
+            - link "Seguir en Instagram" [ref=e30] [cursor=pointer]:
+              - /url: https://instagram.com/edui_design
+              - img [ref=e31]
+          - generic [ref=e34]:
+            - img [ref=e35]
+            - link "Seguir en GitHub" [ref=e38] [cursor=pointer]:
+              - /url: https://github.com/educlopez
+              - img [ref=e39]
+          - generic [ref=e42]:
+            - img [ref=e43]
+            - link "Seguir en LinkedIn" [ref=e46] [cursor=pointer]:
+              - /url: https://linkedin.com/in/educlopez
+              - img [ref=e47]
+          - generic [ref=e51]:
+            - img [ref=e52]
+            - link "Read.cv" [ref=e55] [cursor=pointer]:
+              - /url: https://read.cv/educlopez
+              - img [ref=e56]
+          - generic [ref=e59]:
+            - img [ref=e60]
+            - link "Enviar Correo" [ref=e63] [cursor=pointer]:
+              - /url: mailto:example@example.com
+              - img [ref=e64]
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - img [ref=e74]
+            - generic [ref=e76]: Último Post
+          - time [ref=e77]: 18 de febrero de 2023
+          - heading "Lorem Ipsum" [level=2] [ref=e80]:
+            - link "Lorem Ipsum" [ref=e81] [cursor=pointer]:
+              - /url: /blog/post2
+              - text: Lorem Ipsum
+          - generic [ref=e84]: "#Desarrollo"
+          - paragraph [ref=e85]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - img [ref=e88]
+            - generic [ref=e91]: Experiencia
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - img "Diseñador Web y Frontend" [ref=e96]
+              - generic [ref=e97]:
+                - generic [ref=e98]: Empresa y Fecha
+                - generic [ref=e99]:
+                  - text: Cinetic Digital -
+                  - generic "2021 until Presente" [ref=e100]:
+                    - time [ref=e101]: "2021"
+                    - text: —
+                    - time [ref=e102]: Presente
+                - generic [ref=e103]: Rol
+                - generic [ref=e104]: Diseñador Web y Frontend
+            - generic [ref=e105]:
+              - img "Diseñador Gráfico y Desarrollador Web" [ref=e107]
+              - generic [ref=e108]:
+                - generic [ref=e109]: Empresa y Fecha
+                - generic [ref=e110]:
+                  - text: Ádraba -
+                  - generic "2018 until 2021" [ref=e111]:
+                    - time [ref=e112]: "2018"
+                    - text: —
+                    - time [ref=e113]: "2021"
+                - generic [ref=e114]: Rol
+                - generic [ref=e115]: Diseñador Gráfico y Desarrollador Web
+            - generic [ref=e116]:
+              - img "Diseñador Gráfico y Maquetador web" [ref=e118]
+              - generic [ref=e119]:
+                - generic [ref=e120]: Empresa y Fecha
+                - generic [ref=e121]:
+                  - text: Tantra -
+                  - generic "2015 until 2019" [ref=e122]:
+                    - time [ref=e123]: "2015"
+                    - text: —
+                    - time [ref=e124]: "2019"
+                - generic [ref=e125]: Rol
+                - generic [ref=e126]: Diseñador Gráfico y Maquetador web
+            - generic [ref=e127]:
+              - img "Diseñador Gráfico y Maquetador web" [ref=e129]
+              - generic [ref=e130]:
+                - generic [ref=e131]: Empresa y Fecha
+                - generic [ref=e132]:
+                  - text: BDO -
+                  - generic "2016 until 2017" [ref=e133]:
+                    - time [ref=e134]: "2016"
+                    - text: —
+                    - time [ref=e135]: "2017"
+                - generic [ref=e136]: Rol
+                - generic [ref=e137]: Diseñador Gráfico y Maquetador web
+            - generic [ref=e138]:
+              - img "Diseñador Gráfico." [ref=e140]
+              - generic [ref=e141]:
+                - generic [ref=e142]: Empresa y Fecha
+                - generic [ref=e143]:
+                  - text: Papaya Group -
+                  - generic "2014 until 2014" [ref=e144]:
+                    - time [ref=e145]: "2014"
+                    - text: —
+                    - time [ref=e146]: "2014"
+                - generic [ref=e147]: Rol
+                - generic [ref=e148]: Diseñador Gráfico.
+          - generic [ref=e149]:
+            - link "Read.cv" [ref=e150] [cursor=pointer]:
+              - /url: https://read.cv/educlopez
+              - img [ref=e151]
+              - text: Read.cv
+            - link "Descargar cv" [ref=e154] [cursor=pointer]:
+              - /url: /images/blog/cover-lorem-ipsum.png
+              - img [ref=e155]
+              - text: Descargar cv
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - img [ref=e160]
+            - generic [ref=e162]: Proyectos
+          - generic [ref=e164]:
+            - img "Lorem Ipsum Project" [ref=e167]
+            - img "Lorem Ipsum Project" [ref=e170]
+        - generic [ref=e171]:
+          - generic [ref=e292]:
+            - img "Sky Becomes Water" [ref=e296]
+            - generic [ref=e298]:
+              - link "Sky Becomes Water" [ref=e299] [cursor=pointer]:
+                - /url: https://open.spotify.com/track/7e4qdUt1TBfovilB8GtEIM
+              - paragraph [ref=e300]: Ryan Amon, City of the Fallen
+            - link [ref=e301] [cursor=pointer]:
+              - /url: https://open.spotify.com/track/7e4qdUt1TBfovilB8GtEIM
+              - img [ref=e302]
+          - generic [ref=e178]:
+            - generic [ref=e184]:
+              - img [ref=e185]
+              - generic [ref=e187]: Contactar
+            - paragraph [ref=e188]: Construyendo experiencias digitales excepcionales. ¡Hablemos de tu proyecto!
+            - generic [ref=e189]:
+              - link "Envíame un Email" [ref=e190] [cursor=pointer]:
+                - /url: mailto:example@example.com
+              - link "DM en Twitter" [ref=e191] [cursor=pointer]:
+                - /url: https://x.com/messages/compose?recipient_id=296227502
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - img [ref=e194]
+            - generic [ref=e197]: Stack
+          - img [ref=e199]:
+            - generic [ref=e200]:
+              - link [ref=e203] [cursor=pointer]:
+                - /url: /stack
+              - link [ref=e206] [cursor=pointer]:
+                - /url: /stack
+              - link [ref=e209] [cursor=pointer]:
+                - /url: /stack
+              - link [ref=e214] [cursor=pointer]:
+                - /url: /stack
+              - link [ref=e224] [cursor=pointer]:
+                - /url: /stack
+              - link [ref=e234] [cursor=pointer]:
+                - /url: /stack
+              - link [ref=e237] [cursor=pointer]:
+                - /url: /stack
+    - generic [ref=e244]:
+      - button "Inicio" [ref=e245] [cursor=pointer]:
+        - link "Inicio" [ref=e246]:
+          - /url: /
+          - img "avatar Eduardo Calvo López" [ref=e249]
+      - button "About" [ref=e250] [cursor=pointer]:
+        - link "About" [ref=e251]:
+          - /url: /about
+          - img [ref=e253]
+      - button "Blog" [ref=e256] [cursor=pointer]:
+        - link "Blog" [ref=e257]:
+          - /url: /blog
+          - img [ref=e259]
+      - button "Proyectos" [ref=e262] [cursor=pointer]:
+        - link "Proyectos" [ref=e263]:
+          - /url: /proyectos
+          - img [ref=e265]
+      - button "Stack" [ref=e268] [cursor=pointer]:
+        - link "Stack" [ref=e269]:
+          - /url: /stack
+          - img [ref=e271]
+      - button "Tienda" [ref=e275] [cursor=pointer]:
+        - link "Tienda" [ref=e276]:
+          - /url: https://educalvolopez.lemonsqueezy.com/
+          - img [ref=e278]
+      - separator [ref=e282]
+      - button "Switch to dark theme" [ref=e283] [cursor=pointer]:
+        - generic "Switch to dark theme" [ref=e284]:
+          - img [ref=e285]
+  - alert [ref=e291]

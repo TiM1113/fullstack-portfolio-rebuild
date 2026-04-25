@@ -1,0 +1,194 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - heading "El software que uso, los dispositivos que amo y otras cosas que recomiendo." [level=1] [ref=e9]:
+            - generic [ref=e10]: El software que uso, los dispositivos que amo y otras cosas que recomiendo.
+          - paragraph [ref=e11]:
+            - generic [ref=e12]: Las cosas que uso para crear webs, mantenerme productivo o comprar para engañarme y pensar que estoy siendo productivo cuando en realidad solo estoy procrastinando. Aquí hay una gran lista de todas mis cosas favoritas. Algunas recomendaciones pueden contener enlaces de afilidados.
+        - generic [ref=e13]:
+          - group "Modo List Grid" [ref=e15]:
+            - radio "modo list" [checked] [ref=e16] [cursor=pointer]:
+              - img [ref=e17]
+            - radio "modo grid" [ref=e19] [cursor=pointer]:
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - region "Workstation" [ref=e23]:
+              - generic [ref=e24]:
+                - heading "Workstation" [level=2] [ref=e25]
+                - list [ref=e27]:
+                  - listitem [ref=e28]:
+                    - img [ref=e30]
+                    - link "16” MacBook Pro, M1 Max, 16GB RAM (2021)" [ref=e34] [cursor=pointer]:
+                      - /url: https://www.amazon.es/Apple-MacBook-16-polegadas-Processador-GPU-16%E2%80%91Core/dp/B09JRB88SJ?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1MLQLFGXBZV8Y&keywords=Apple+2021+MacBook+Pro+%28de+16+Pulgadas%2C+Chip+M1+Pro+CPU+de+Diez+n%C3%BAcleos+y+GPU+de+diecis%C3%A9is+n%C3%BAcleos%2C+16+GB+RAM%2C+1+TB+SSD%29+-+Gris+Espacial&qid=1683566660&sprefix=apple+2021+macbook+pro+de+16+pulgadas+chip+m1+pro+cpu+de+diez+n%C3%BAcleos+y+gpu+de+diecis%C3%A9is+n%C3%BAcleos+16+gb+ram+1+tb+ssd+-+gris+espacial%2Caps%2C92&sr=8-1&linkCode=ll1&tag=educlopez0b5-21&linkId=0872c08afe9b27fddca310b6361b2d95&language=es_ES&ref_=as_li_ss_tl
+                      - text: 16” MacBook Pro, M1 Max, 16GB RAM (2021)
+                    - paragraph [ref=e36]: Utilizo este ordenador todos los días para programar, diseñar y para uso personal. Su diseño es bonito y funcional. La duración de la batería es excelente y me encantan los teclados retroiluminados.
+                  - listitem [ref=e37]:
+                    - img [ref=e39]
+                    - link "Ipad Air 4º 64gb (2020)" [ref=e43] [cursor=pointer]:
+                      - /url: https://www.amazon.es/Nuevo-Apple-iPad-Air-Pulgadas-Wi-Fi/dp/B08J6KQKCZ?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=VXDYTA8J9C97&keywords=ipad+air+4%C2%BA&qid=1667918530&qu=eyJxc2MiOiIxLjI3IiwicXNhIjoiMC4wMCIsInFzcCI6IjAuMDAifQ%3D%3D&sprefix=ipad+air+4%C2%BA%2Caps%2C137&sr=8-7&linkCode=ll1&tag=educlopez0b5-21&linkId=a5ef7ccd7f4d96209c99819946bafd96&language=es_ES&ref_=as_li_ss_tl
+                      - text: Ipad Air 4º 64gb (2020)
+                    - paragraph [ref=e45]: Lo uso como pantalla secundaria para el MacBook y para usar procreate y mejorar la productividad en el trabajo. El iPad Air 4th es extremadamente fácil de usar y disfruto viendo películas en él o escuchando música.
+                  - listitem [ref=e46]:
+                    - img [ref=e48]
+                    - link "LG 27UL650-W - Monitor 27 pulgadas 4K UHD" [ref=e52] [cursor=pointer]:
+                      - /url: https://www.amazon.es/LG-27UL650-W-Monitor-p%C3%ADxeles-Blanco/dp/B07MKT2BNB?_encoding=UTF8&pd_rd_w=urJYM&pf_rd_p=7cb4f41c-4069-4153-8213-7c4029053920&pf_rd_r=JHPSZM8XF4CRHYCM0BR7&pd_rd_r=b523a3d0-880c-4dd9-8d21-461b7fd6618e&pd_rd_wg=mRndX&linkCode=ll1&tag=educlopez0b5-21&linkId=a1e334c35780ca6dacc85de6736d7c21&language=es_ES&ref_=as_li_ss_tl
+                      - text: LG 27UL650-W - Monitor 27 pulgadas 4K UHD
+                    - paragraph [ref=e54]: El LG 27UL650-W es un gran monitor, con una resolución 4K UHD y una excelente reproducción del color. La pantalla es compatible con el MacBook Pro (modelo de 15 pulgadas), pero se verá muy bien en cualquier otro lugar.
+                  - listitem [ref=e55]:
+                    - img [ref=e57]
+                    - link "Logitech K380 Teclado Inalámbrico" [ref=e61] [cursor=pointer]:
+                      - /url: https://www.amazon.es/gp/product/B013SL1ZBK?ie=UTF8&psc=1&linkCode=ll1&tag=educlopez0b5-21&linkId=fa97efd8cceb1403a5cf45b6c9b0e5fe&language=es_ES&ref_=as_li_ss_tl
+                      - text: Logitech K380 Teclado Inalámbrico
+                    - paragraph [ref=e63]: Gran teclado para trabajar en casa, de viaje o en cualquier lugar de trabajo. Funciona con una gran variedad de dispositivos y ordenadores, lo que lo hace muy flexible.
+                  - listitem [ref=e64]:
+                    - img [ref=e66]
+                    - link "Keywoard Ozone Tactical" [ref=e70] [cursor=pointer]:
+                      - /url: https://www.amazon.es/Ozone-Gaming-OZTACTICALSP-Iluminacion-Silencioso/dp/B08PPHFLPK?keywords=ozone+tactical&qid=1678482010&sprefix=ozone%2Caps%2C136&sr=8-4&linkCode=ll1&tag=educlopez0b5-21&linkId=e41d8f76ea7aa96776d0e9af528cf0cc&language=es_ES&ref_=as_li_ss_tl
+                      - text: Keywoard Ozone Tactical
+                    - paragraph [ref=e72]: Mi teclado principal este 2023, es un teclado mecánico con switches rojos, es muy cómodo y tiene un diseño muy bonito. Lo uso para programar y para jugar.
+            - region "Desarrollo" [ref=e73]:
+              - generic [ref=e74]:
+                - heading "Desarrollo" [level=2] [ref=e75]
+                - list [ref=e77]:
+                  - listitem [ref=e78]:
+                    - img [ref=e80]
+                    - link "Visual studio code" [ref=e84] [cursor=pointer]:
+                      - /url: https://code.visualstudio.com/?wt.mc_id=DX_841432
+                      - text: Visual studio code
+                    - paragraph [ref=e86]: Atom, sublime text, phpstorm... descansan en paz en mi recuerdo ya que llego visual studio y me cambio la vida.
+                  - listitem [ref=e87]:
+                    - img [ref=e89]
+                    - link "Nextjs" [ref=e93] [cursor=pointer]:
+                      - /url: https://nextjs.org/
+                      - text: Nextjs
+                    - paragraph [ref=e95]: Utilizo Next.js como framework de React porque me permite crear aplicaciones y sitios web de alto rendimiento y con una experiencia de usuario fluida. Además, me ofrece una serie de características útiles como renderizado en el lado del servidor, soporte para SEO y enrutamiento automático. También me gusta la opción de utilizar getInitialProps para obtener datos en el lado del servidor y la posibilidad de crear páginas estáticas para mejorar el rendimiento. En resumen, Next.js es un framework muy completo y potente que me permite crear aplicaciones y sitios web de alta calidad de manera rápida y sencilla.
+                  - listitem [ref=e96]:
+                    - img [ref=e98]
+                    - link "Vercel" [ref=e102] [cursor=pointer]:
+                      - /url: https://vercel.com
+                      - text: Vercel
+                    - paragraph [ref=e104]: Utilizo Vercel como hosting porque es rápido, seguro y fácil de usar. Además, me permite realizar actualizaciones y despliegues con un solo clic y ofrece soporte para diferentes frameworks y lenguajes de programación, como React, Next.js, Gatsby y muchos más. También me gusta la opción de integración con GitHub y la posibilidad de programar despliegues automáticos cuando se realizan cambios en el repositorio. En resumen, Vercel es un hosting muy completo y versátil que me permite administrar y desplegar mis proyectos de manera rápida y sencilla.
+                  - listitem [ref=e105]:
+                    - img [ref=e107]
+                    - link "Tailwind" [ref=e111] [cursor=pointer]:
+                      - /url: https://tailwindcss.com/
+                      - text: Tailwind
+                    - paragraph [ref=e113]: Utilizo Tailwind como framework de CSS para crear sitios web porque me permite crear diseños únicos y personalizados sin tener que escribir tanto código CSS. Además, es muy fácil de usar y integrar en proyectos realizados en React, lo que me permite ahorrar tiempo y esfuerzo en la creación de interfaces de usuario atractivas y funcionales. Aunque también utilizo Bootstrap, encuentro que Tailwind es más adecuado para proyectos en los que necesito un mayor control y personalización del diseño.
+                  - listitem [ref=e114]:
+                    - img [ref=e116]
+                    - link "Lando" [ref=e120] [cursor=pointer]:
+                      - /url: https://docs.lando.dev/
+                      - text: Lando
+                    - paragraph [ref=e122]: Utilizo Lando para crear entornos locales para PrestaShop porque es muy fácil de usar y me permite levantar un servidor Docker en cuestión de segundos. Esto me permite comenzar a desarrollar mis proyectos de manera rápida y sencilla, sin tener que preocuparme por la configuración del servidor. Lando también me permite realizar pruebas en diferentes versiones de PHP y bases de datos, lo que me da la flexibilidad necesaria para probar y depurar mi código de manera eficiente. En resumen, Lando es una herramienta muy útil para crear entornos de desarrollo locales para PrestaShop de manera rápida y sencilla.
+                  - listitem [ref=e123]:
+                    - img [ref=e125]
+                    - link "Bootstrap" [ref=e129] [cursor=pointer]:
+                      - /url: https://getbootstrap.com/
+                      - text: Bootstrap
+                    - paragraph [ref=e131]: Utilizo Bootstrap como framework de CSS para crear sitios web porque es fácil de usar, tiene una amplia gama de componentes y diseños predefinidos y es altamente personalizable. Además, es compatible con dispositivos móviles y responsive design, lo que me permite crear sitios web atractivos y fácilmente accesibles desde cualquier dispositivo.
+                  - listitem [ref=e132]:
+                    - img [ref=e134]
+                    - link "Docker" [ref=e138] [cursor=pointer]:
+                      - /url: https://www.docker.com/
+                      - text: Docker
+                    - paragraph [ref=e140]: Llevo años usando Docker, antes para levantar Laravel rapidamente y ahora lo uso por Lando para levantar los ecommerce de la empresa.
+                  - listitem [ref=e141]:
+                    - img [ref=e143]
+                    - link "Table plus" [ref=e147] [cursor=pointer]:
+                      - /url: https://tableplus.com/
+                      - text: Table plus
+                    - paragraph [ref=e149]: El gestor de bases de datos es muy útil, y lo uso desde hace mucho tiempo porque es cómodo y fácil de usar.
+                  - listitem [ref=e150]:
+                    - img [ref=e152]
+                    - link "Transmit" [ref=e156] [cursor=pointer]:
+                      - /url: https://panic.com/transmit/
+                      - text: Transmit
+                    - paragraph [ref=e158]: Utilizo Transmit como gestor FTP porque es una aplicación fácil de usar y potente que me permite transferir archivos de forma rápida y segura entre mi ordenador y servidores web. También me ofrece una amplia variedad de opciones de configuración y personalización, lo que me permite adaptarlo a mis necesidades específicas de transferencia de archivos. Además, Transmit es compatible con una gran variedad de protocolos de transferencia de archivos, lo que me permite conectarme a una amplia variedad de servidores.
+            - region "Diseño" [ref=e159]:
+              - generic [ref=e160]:
+                - heading "Diseño" [level=2] [ref=e161]
+                - list [ref=e163]:
+                  - listitem [ref=e164]:
+                    - img [ref=e166]
+                    - link "Figma" [ref=e170] [cursor=pointer]:
+                      - /url: https://www.figma.com/
+                      - text: Figma
+                    - paragraph [ref=e172]: Utilizo Figma para diseñar porque es una herramienta en línea y colaborativa que ofrece una amplia gama de herramientas y una interfaz intuitiva. Permite integración con otras herramientas y acceso a diseños desde cualquier lugar y dispositivo.
+                  - listitem [ref=e173]:
+                    - img [ref=e175]
+                    - link "Sketch" [ref=e179] [cursor=pointer]:
+                      - /url: https://www.sketch.com/
+                      - text: Sketch
+                    - paragraph [ref=e181]: Utilizo Sketch para diseñar porque es intuitivo, potente y fácil de usar. Ofrece una amplia gama de herramientas de diseño y una interfaz clara y sencilla. También permite integración con otras herramientas y colaboración con otros diseñadores.Utilizo Figma para diseñar porque es una herramienta en línea y colaborativa que ofrece una amplia gama de herramientas y una interfaz intuitiva. Permite integración con otras herramientas y acceso a diseños desde cualquier lugar y dispositivo.
+            - region "Productividad" [ref=e182]:
+              - generic [ref=e183]:
+                - heading "Productividad" [level=2] [ref=e184]
+                - list [ref=e186]:
+                  - listitem [ref=e187]:
+                    - img [ref=e189]
+                    - link "Arc" [ref=e193] [cursor=pointer]:
+                      - /url: https://arc.net/gift/b697f951
+                      - text: Arc
+                    - paragraph [ref=e195]: Utilizo el navegador Arc porque me gusta su interfaz y las opciones adicionales que ofrece. También me gusta la gran cantidad de opciones de personalización disponibles, como el editor de temas y los espacios de trabajo. Además, Arc tiene opciones útiles para la reproducción de video y la navegación en websites. Es un navegador rápido, seguro y altamente personalizable que me facilita la navegación en línea.
+                  - listitem [ref=e196]:
+                    - img [ref=e198]
+                    - link "Notion" [ref=e202] [cursor=pointer]:
+                      - /url: https://affiliate.notion.so/txvwbopbausc
+                      - text: Notion
+                    - paragraph [ref=e204]: Sea lo que sea en lo que estés trabajando, la aplicación Notion es tu amiga. Organiza tus pensamientos e ideas con nuestra plataforma basada en plantillas, que te permite reunir rápidamente ideas para publicaciones de blog, crear tableros de estado de ánimo y hacer una lluvia de ideas creativas. Creada para los creativos.
+                  - listitem [ref=e205]:
+                    - img [ref=e207]
+                    - link "Raycast" [ref=e211] [cursor=pointer]:
+                      - /url: https://www.raycast.com/
+                      - text: Raycast
+                    - paragraph [ref=e213]: Se trata de una barra de comandos que puede utilizar para lanzar cualquier comando en su entorno de escritorio. Proporciona acceso a una serie de útiles complementos y accesos directos para realizar operaciones comunes
+                  - listitem [ref=e214]:
+                    - img [ref=e216]
+                    - link "Slack" [ref=e220] [cursor=pointer]:
+                      - /url: https://slack.com/intl/es-es
+                      - text: Slack
+                    - paragraph [ref=e222]: Productividad o distración pero Slack ayuda mucho al trabajo en remoto permitiendote comunicarte con tus compañeros de proyecto.
+                  - listitem [ref=e223]:
+                    - img [ref=e225]
+                    - link "1Password" [ref=e229] [cursor=pointer]:
+                      - /url: https://1password.com/es/
+                      - text: 1Password
+                    - paragraph [ref=e231]: Utilizo 1Password para gestionar mis contraseñas y datos personales de manera segura y accesible. Ofrece autenticación en dos pasos y alertas de seguridad para proteger mis cuentas. Es esencial para proteger mis datos personales y mantener seguras mis cuentas en línea.
+                  - listitem [ref=e232]:
+                    - img [ref=e234]
+                    - link "Setapp" [ref=e238] [cursor=pointer]:
+                      - /url: https://go.setapp.com/invite/vti9ximz
+                      - text: Setapp
+                    - paragraph [ref=e240]: Utilizo Setapp porque es una plataforma de suscripción que me permite acceder a una amplia variedad de aplicaciones de productividad y creatividad de forma fácil y conveniente. No tengo que preocuparme por comprar y descargar cada aplicación individualmente ni por pagar licencias separadas.
+    - generic [ref=e242]:
+      - button "Inicio" [ref=e243] [cursor=pointer]:
+        - link "Inicio" [ref=e244]:
+          - /url: /
+          - img "avatar Eduardo Calvo López" [ref=e247]
+      - button "About" [ref=e248] [cursor=pointer]:
+        - link "About" [ref=e249]:
+          - /url: /about
+          - img [ref=e251]
+      - button "Blog" [ref=e254] [cursor=pointer]:
+        - link "Blog" [ref=e255]:
+          - /url: /blog
+          - img [ref=e257]
+      - button "Proyectos" [ref=e260] [cursor=pointer]:
+        - link "Proyectos" [ref=e261]:
+          - /url: /proyectos
+          - img [ref=e263]
+      - button "Stack" [ref=e266] [cursor=pointer]:
+        - link "Stack" [ref=e267]:
+          - /url: /stack
+          - img [ref=e269]
+      - button "Tienda" [ref=e273] [cursor=pointer]:
+        - link "Tienda" [ref=e274]:
+          - /url: https://educalvolopez.lemonsqueezy.com/
+          - img [ref=e276]
+      - separator [ref=e280]
+      - button "Switch to dark theme" [ref=e281] [cursor=pointer]:
+        - generic "Switch to dark theme" [ref=e282]:
+          - img [ref=e283]
+  - alert [ref=e289]

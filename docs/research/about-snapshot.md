@@ -1,0 +1,148 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - generic [ref=e11]:
+            - tablist "tabs Fotos" [ref=e12]:
+              - tab "Yo" [selected] [ref=e13] [cursor=pointer]:
+                - generic [ref=e14]:
+                  - img [ref=e15]
+                  - generic [ref=e18]: Yo
+              - tab "Aren" [ref=e19] [cursor=pointer]:
+                - generic [ref=e20]:
+                  - img [ref=e21]
+                  - generic [ref=e26]: Aren
+              - tab "Lugar" [ref=e27] [cursor=pointer]:
+                - generic [ref=e28]:
+                  - img [ref=e29]
+                  - generic [ref=e31]: Lugar
+            - tabpanel "Yo" [ref=e32]:
+              - img "Yo" [ref=e33]
+          - generic [ref=e34]:
+            - heading "Soy Edu Calvo, un apasionado del diseño y desarrollo web." [level=1] [ref=e35]:
+              - generic [ref=e36]: Soy Edu Calvo, un apasionado del diseño y desarrollo web.
+            - paragraph [ref=e38]: Desde mis inicios en el diseño gráfico, he estado comprometido con la creación de experiencias digitales que no solo sean visualmente atractivas, sino también funcionales y accesibles. Mi enfoque se centra en entender las necesidades del usuario y traducirlas en soluciones efectivas. He colaborado con diversas empresas, desde startups hasta grandes corporaciones, siempre buscando innovar y mejorar la interacción del usuario con la tecnología.
+          - list [ref=e40]:
+            - listitem [ref=e41]:
+              - link "Seguir en Twitter Seguir en Twitter" [ref=e42] [cursor=pointer]:
+                - /url: https://twitter.com/educalvolpz
+                - generic [ref=e43]:
+                  - generic [ref=e44]:
+                    - paragraph [ref=e45]: Seguir en Twitter
+                    - img [ref=e46]
+                  - generic [ref=e49]:
+                    - img [ref=e50]
+                    - generic [ref=e52]: Seguir en Twitter
+            - listitem [ref=e53]:
+              - link "Seguir en Instagram Seguir en Instagram" [ref=e54] [cursor=pointer]:
+                - /url: https://instagram.com/edui_design
+                - generic [ref=e55]:
+                  - generic [ref=e56]:
+                    - paragraph [ref=e57]: Seguir en Instagram
+                    - img [ref=e58]
+                  - generic [ref=e61]:
+                    - img [ref=e62]
+                    - generic [ref=e65]: Seguir en Instagram
+            - listitem [ref=e66]:
+              - link "Seguir en GitHub Seguir en GitHub" [ref=e67] [cursor=pointer]:
+                - /url: https://github.com/educlopez
+                - generic [ref=e68]:
+                  - generic [ref=e69]:
+                    - paragraph [ref=e70]: Seguir en GitHub
+                    - img [ref=e71]
+                  - generic [ref=e74]:
+                    - img [ref=e75]
+                    - generic [ref=e78]: Seguir en GitHub
+            - listitem [ref=e79]:
+              - link "Seguir en LinkedIn Seguir en LinkedIn" [ref=e80] [cursor=pointer]:
+                - /url: https://linkedin.com/in/educlopez
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - paragraph [ref=e83]: Seguir en LinkedIn
+                    - img [ref=e84]
+                  - generic [ref=e87]:
+                    - img [ref=e88]
+                    - generic [ref=e92]: Seguir en LinkedIn
+            - listitem [ref=e93]:
+              - link "Read.cv Read.cv" [ref=e94] [cursor=pointer]:
+                - /url: https://read.cv/educlopez
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - paragraph [ref=e97]: Read.cv
+                    - img [ref=e98]
+                  - generic [ref=e101]:
+                    - img [ref=e102]
+                    - generic [ref=e105]: Read.cv
+            - listitem [ref=e106]:
+              - link "Enviar Correo Enviar Correo" [ref=e107] [cursor=pointer]:
+                - /url: mailto:example@example.com
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - paragraph [ref=e110]: Enviar Correo
+                    - img [ref=e111]
+                  - generic [ref=e114]:
+                    - img [ref=e115]
+                    - generic [ref=e118]: Enviar Correo
+        - region "Testimonios" [ref=e119]:
+          - heading "Testimonios" [level=2] [ref=e120]
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - figure "Laura Martínez - Gerente de Proyectos" [ref=e123]:
+                - blockquote [ref=e124]:
+                  - paragraph [ref=e125]: “Trabajar con Eduardo ha sido una experiencia increíble. Su capacidad para resolver problemas y su atención al detalle son excepcionales. Siempre aporta ideas innovadoras y es un placer colaborar con él.”
+                - generic [ref=e126]: Laura Martínez - Gerente de Proyectos
+              - figure "Javier Ruiz - Analista de Marketing" [ref=e127]:
+                - blockquote [ref=e128]:
+                  - paragraph [ref=e129]: “Colaborar con Eduardo ha sido un verdadero placer. Su dedicación y profesionalismo son evidentes en cada tarea que realiza. Siempre está dispuesto a ayudar y a compartir su conocimiento.”
+                - generic [ref=e130]: Javier Ruiz - Analista de Marketing
+              - text: “” “” “” “”
+            - generic [ref=e131]:
+              - figure "Carlos López - Desarrollador Frontend" [ref=e132]:
+                - blockquote [ref=e133]:
+                  - paragraph [ref=e134]: “Eduardo es un profesional comprometido y apasionado por su trabajo. Su habilidad para trabajar en equipo y su conocimiento técnico son admirables. Sin duda, es una gran adición a cualquier proyecto.”
+                - generic [ref=e135]: Carlos López - Desarrollador Frontend
+              - figure "María González - Product Owner" [ref=e136]:
+                - blockquote [ref=e137]:
+                  - paragraph [ref=e138]: “Eduardo es un experto en su campo. Su capacidad para gestionar proyectos y su enfoque en la calidad son impresionantes. Ha sido un gran aliado en el desarrollo de nuestras iniciativas.”
+                - generic [ref=e139]: María González - Product Owner
+              - text: “”
+            - generic [ref=e140]:
+              - figure "Sofía Pérez - Diseñadora UX/UI" [ref=e141]:
+                - blockquote [ref=e142]:
+                  - paragraph [ref=e143]: “Eduardo tiene un enfoque único para el diseño y la implementación. Su creatividad y su capacidad para escuchar las necesidades del cliente hacen que cada proyecto sea un éxito. ¡Recomiendo trabajar con él!”
+                - generic [ref=e144]: Sofía Pérez - Diseñadora UX/UI
+              - figure "Fernando Torres - Consultor de Tecnología" [ref=e145]:
+                - blockquote [ref=e146]:
+                  - paragraph [ref=e147]: “Eduardo es un profesional excepcional. Su habilidad para adaptarse a diferentes situaciones y su enfoque proactivo son cualidades que lo destacan. Estoy muy satisfecho con los resultados de nuestro trabajo conjunto.”
+                - generic [ref=e148]: Fernando Torres - Consultor de Tecnología
+    - generic [ref=e150]:
+      - button "Inicio" [ref=e151] [cursor=pointer]:
+        - link "Inicio" [ref=e152]:
+          - /url: /
+          - img "avatar Eduardo Calvo López" [ref=e155]
+      - button "About" [ref=e156] [cursor=pointer]:
+        - link "About" [ref=e157]:
+          - /url: /about
+          - img [ref=e159]
+      - button "Blog" [ref=e162] [cursor=pointer]:
+        - link "Blog" [ref=e163]:
+          - /url: /blog
+          - img [ref=e165]
+      - button "Proyectos" [ref=e168] [cursor=pointer]:
+        - link "Proyectos" [ref=e169]:
+          - /url: /proyectos
+          - img [ref=e171]
+      - button "Stack" [ref=e174] [cursor=pointer]:
+        - link "Stack" [ref=e175]:
+          - /url: /stack
+          - img [ref=e177]
+      - button "Tienda" [ref=e181] [cursor=pointer]:
+        - link "Tienda" [ref=e182]:
+          - /url: https://educalvolopez.lemonsqueezy.com/
+          - img [ref=e184]
+      - separator [ref=e188]
+      - button "Switch to dark theme" [ref=e189] [cursor=pointer]:
+        - generic "Switch to dark theme" [ref=e190]:
+          - img [ref=e191]
+  - alert [ref=e197]

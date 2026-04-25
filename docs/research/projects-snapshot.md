@@ -1,0 +1,165 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - heading "Proyectos que he realizado durante mi carrera." [level=1] [ref=e9]:
+            - generic [ref=e10]: Proyectos que he realizado durante mi carrera.
+          - paragraph [ref=e11]:
+            - generic [ref=e12]: ¿No sabes por dónde empezar? He trabajado en montones de pequeños y grandes proyectos a lo largo de los años, pero estos son los que más me enorgullecen. Muchos de ellos son privados y no podré mostrarlos a continuación.
+        - generic [ref=e13]:
+          - heading "Proyectos destacados" [level=2] [ref=e14]
+          - list [ref=e15]:
+            - generic [ref=e17]:
+              - img "Lorem Ipsum Project" [ref=e19]
+              - link "Lorem Ipsum Project" [ref=e20] [cursor=pointer]:
+                - /url: /proyectos/proyecto3
+                - text: Lorem Ipsum Project
+              - generic [ref=e22]:
+                - paragraph [ref=e23]: Lorem Ipsum Project
+                - paragraph [ref=e24]: marzo de 2023
+            - generic [ref=e26]:
+              - img "Lorem Ipsum Project" [ref=e28]
+              - link "Lorem Ipsum Project" [ref=e29] [cursor=pointer]:
+                - /url: /proyectos/proyecto2
+                - text: Lorem Ipsum Project
+              - generic [ref=e31]:
+                - paragraph [ref=e32]: Lorem Ipsum Project
+                - paragraph [ref=e33]: febrero de 2023
+            - generic [ref=e35]:
+              - img "Lorem Ipsum Project" [ref=e37]
+              - link "Lorem Ipsum Project" [ref=e38] [cursor=pointer]:
+                - /url: /proyectos/proyecto1
+                - text: Lorem Ipsum Project
+              - generic [ref=e40]:
+                - paragraph [ref=e41]: Lorem Ipsum Project
+                - paragraph [ref=e42]: enero de 2023
+          - generic [ref=e45]:
+            - generic [ref=e47]:
+              - link "Aneto" [ref=e48] [cursor=pointer]:
+                - /url: https://www.aneto.com/
+                - img "Aneto" [ref=e50]
+              - link "Dentaid" [ref=e51] [cursor=pointer]:
+                - /url: https://www.dentaid.es/
+                - img "Dentaid" [ref=e53]
+              - link "Janè" [ref=e54] [cursor=pointer]:
+                - /url: https://janeworld.com/
+                - img "Janè" [ref=e56]
+              - link "Termix" [ref=e57] [cursor=pointer]:
+                - /url: https://www.termix.net/
+                - img "Termix" [ref=e59]
+              - link "Banco Sabadell" [ref=e60] [cursor=pointer]:
+                - /url: https://www.bancsabadell.com/
+                - img "Banco Sabadell" [ref=e62]
+              - link "Universidad Autonoma de Madrid" [ref=e63] [cursor=pointer]:
+                - /url: https://www.uam.es/
+                - img "Universidad Autonoma de Madrid" [ref=e65]
+              - link "Tantra Spain" [ref=e66] [cursor=pointer]:
+                - /url: https://tantraspain.com/
+                - img "Tantra Spain" [ref=e68]
+              - link "Net2phone" [ref=e69] [cursor=pointer]:
+                - /url: https://www.net2phone.es/
+                - img "Net2phone" [ref=e71]
+              - link "Aneto" [ref=e72] [cursor=pointer]:
+                - /url: https://www.aneto.com/
+                - img "Aneto" [ref=e74]
+              - link "Dentaid" [ref=e75] [cursor=pointer]:
+                - /url: https://www.dentaid.es/
+                - img "Dentaid" [ref=e77]
+              - link "Janè" [ref=e78] [cursor=pointer]:
+                - /url: https://janeworld.com/
+                - img "Janè" [ref=e80]
+              - link "Termix" [ref=e81] [cursor=pointer]:
+                - /url: https://www.termix.net/
+                - img "Termix" [ref=e83]
+              - link "Banco Sabadell" [ref=e84] [cursor=pointer]:
+                - /url: https://www.bancsabadell.com/
+                - img "Banco Sabadell" [ref=e86]
+              - link "Universidad Autonoma de Madrid" [ref=e87] [cursor=pointer]:
+                - /url: https://www.uam.es/
+                - img "Universidad Autonoma de Madrid" [ref=e89]
+              - link "Tantra Spain" [ref=e90] [cursor=pointer]:
+                - /url: https://tantraspain.com/
+                - img "Tantra Spain" [ref=e92]
+              - link "Net2phone" [ref=e93] [cursor=pointer]:
+                - /url: https://www.net2phone.es/
+                - img "Net2phone" [ref=e95]
+            - generic [ref=e97]:
+              - link "Termix" [ref=e98] [cursor=pointer]:
+                - /url: https://www.termix.net/
+                - img "Termix" [ref=e100]
+              - link "Janè" [ref=e101] [cursor=pointer]:
+                - /url: https://janeworld.com/
+                - img "Janè" [ref=e103]
+              - link "Dentaid" [ref=e104] [cursor=pointer]:
+                - /url: https://www.dentaid.es/
+                - img "Dentaid" [ref=e106]
+              - link "Aneto" [ref=e107] [cursor=pointer]:
+                - /url: https://www.aneto.com/
+                - img "Aneto" [ref=e109]
+              - link "Net2phone" [ref=e110] [cursor=pointer]:
+                - /url: https://www.net2phone.es/
+                - img "Net2phone" [ref=e112]
+              - link "Tantra Spain" [ref=e113] [cursor=pointer]:
+                - /url: https://tantraspain.com/
+                - img "Tantra Spain" [ref=e115]
+              - link "Universidad Autonoma de Madrid" [ref=e116] [cursor=pointer]:
+                - /url: https://www.uam.es/
+                - img "Universidad Autonoma de Madrid" [ref=e118]
+              - link "Banco Sabadell" [ref=e119] [cursor=pointer]:
+                - /url: https://www.bancsabadell.com/
+                - img "Banco Sabadell" [ref=e121]
+              - link "Termix" [ref=e122] [cursor=pointer]:
+                - /url: https://www.termix.net/
+                - img "Termix" [ref=e124]
+              - link "Janè" [ref=e125] [cursor=pointer]:
+                - /url: https://janeworld.com/
+                - img "Janè" [ref=e127]
+              - link "Dentaid" [ref=e128] [cursor=pointer]:
+                - /url: https://www.dentaid.es/
+                - img "Dentaid" [ref=e130]
+              - link "Aneto" [ref=e131] [cursor=pointer]:
+                - /url: https://www.aneto.com/
+                - img "Aneto" [ref=e133]
+              - link "Net2phone" [ref=e134] [cursor=pointer]:
+                - /url: https://www.net2phone.es/
+                - img "Net2phone" [ref=e136]
+              - link "Tantra Spain" [ref=e137] [cursor=pointer]:
+                - /url: https://tantraspain.com/
+                - img "Tantra Spain" [ref=e139]
+              - link "Universidad Autonoma de Madrid" [ref=e140] [cursor=pointer]:
+                - /url: https://www.uam.es/
+                - img "Universidad Autonoma de Madrid" [ref=e142]
+              - link "Banco Sabadell" [ref=e143] [cursor=pointer]:
+                - /url: https://www.bancsabadell.com/
+                - img "Banco Sabadell" [ref=e145]
+    - generic [ref=e147]:
+      - button "Inicio" [ref=e148] [cursor=pointer]:
+        - link "Inicio" [ref=e149]:
+          - /url: /
+          - img "avatar Eduardo Calvo López" [ref=e152]
+      - button "About" [ref=e153] [cursor=pointer]:
+        - link "About" [ref=e154]:
+          - /url: /about
+          - img [ref=e156]
+      - button "Blog" [ref=e159] [cursor=pointer]:
+        - link "Blog" [ref=e160]:
+          - /url: /blog
+          - img [ref=e162]
+      - button "Proyectos" [ref=e165] [cursor=pointer]:
+        - link "Proyectos" [ref=e166]:
+          - /url: /proyectos
+          - img [ref=e168]
+      - button "Stack" [ref=e171] [cursor=pointer]:
+        - link "Stack" [ref=e172]:
+          - /url: /stack
+          - img [ref=e174]
+      - button "Tienda" [ref=e178] [cursor=pointer]:
+        - link "Tienda" [ref=e179]:
+          - /url: https://educalvolopez.lemonsqueezy.com/
+          - img [ref=e181]
+      - separator [ref=e185]
+      - button "Switch to dark theme" [ref=e186] [cursor=pointer]:
+        - generic "Switch to dark theme" [ref=e187]:
+          - img [ref=e188]
+  - alert [ref=e194]

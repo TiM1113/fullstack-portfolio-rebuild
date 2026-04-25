@@ -1,0 +1,59 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - heading "Escribiendo sobre diseño de interfaces, programación y hobbies." [level=1] [ref=e9]:
+            - generic [ref=e10]: Escribiendo sobre diseño de interfaces, programación y hobbies.
+          - paragraph [ref=e11]:
+            - generic [ref=e12]: Cuando no estoy programando, puedes encontrarme escribiendo sobre diseño de interfaces, programación y hobbies. Si quieres saber más sobre mí, echa un vistazo a mi perfil de LinkedIn.
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - textbox "Buscar artículos por título o tema" [ref=e17]
+            - img [ref=e18]
+          - generic [ref=e21]:
+            - time [ref=e22]: 18 de febrero de 2023
+            - heading "Lorem Ipsum" [level=2] [ref=e25]:
+              - link "Lorem Ipsum" [ref=e26] [cursor=pointer]:
+                - /url: /blog/post2
+                - text: Lorem Ipsum
+            - generic [ref=e29]: "#Desarrollo"
+            - paragraph [ref=e30]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          - generic [ref=e31]:
+            - time [ref=e32]: 18 de enero de 2023
+            - heading "Lorem Ipsum" [level=2] [ref=e35]:
+              - link "Lorem Ipsum" [ref=e36] [cursor=pointer]:
+                - /url: /blog/post1
+                - text: Lorem Ipsum
+            - generic [ref=e39]: "#Desarrollo"
+            - paragraph [ref=e40]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    - generic [ref=e42]:
+      - button "Inicio" [ref=e43] [cursor=pointer]:
+        - link "Inicio" [ref=e44]:
+          - /url: /
+          - img "avatar Eduardo Calvo López" [ref=e47]
+      - button "About" [ref=e48] [cursor=pointer]:
+        - link "About" [ref=e49]:
+          - /url: /about
+          - img [ref=e51]
+      - button "Blog" [ref=e54] [cursor=pointer]:
+        - link "Blog" [ref=e55]:
+          - /url: /blog
+          - img [ref=e57]
+      - button "Proyectos" [ref=e60] [cursor=pointer]:
+        - link "Proyectos" [ref=e61]:
+          - /url: /proyectos
+          - img [ref=e63]
+      - button "Stack" [ref=e66] [cursor=pointer]:
+        - link "Stack" [ref=e67]:
+          - /url: /stack
+          - img [ref=e69]
+      - button "Tienda" [ref=e73] [cursor=pointer]:
+        - link "Tienda" [ref=e74]:
+          - /url: https://educalvolopez.lemonsqueezy.com/
+          - img [ref=e76]
+      - separator [ref=e80]
+      - button "Switch to dark theme" [ref=e90] [cursor=pointer]:
+        - generic "Switch to dark theme" [ref=e91]:
+          - img [ref=e83]
+  - alert [ref=e89]
