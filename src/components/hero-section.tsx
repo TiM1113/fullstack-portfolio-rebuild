@@ -7,7 +7,7 @@ import { ScrollText, Mail } from "lucide-react";
 const SOCIAL_LINKS = [
   {
     href: "https://twitter.com/educalvolpz",
-    label: "Seguir en Twitter",
+    label: "Follow on Twitter",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ const SOCIAL_LINKS = [
   },
   {
     href: "https://instagram.com/edui_design",
-    label: "Seguir en Instagram",
+    label: "Follow on Instagram",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const SOCIAL_LINKS = [
   },
   {
     href: "https://github.com/educlopez",
-    label: "Seguir en GitHub",
+    label: "Follow on GitHub",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const SOCIAL_LINKS = [
   },
   {
     href: "https://linkedin.com/in/educlopez",
-    label: "Seguir en LinkedIn",
+    label: "Follow on LinkedIn",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ const SOCIAL_LINKS = [
   },
   {
     href: "mailto:example@example.com",
-    label: "Enviar Correo",
+    label: "Send Email",
     icon: <Mail className="h-6 w-6" strokeWidth={1.5} />,
   },
 ];
@@ -113,7 +113,8 @@ function ArrowIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="absolute w-4 h-4 transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+      className="social-arrow absolute w-4 h-4 -right-3"
+      aria-hidden="true"
     >
       <line x1="7" x2="17" y1="17" y2="7" />
       <polyline points="7 7 17 7 17 17" />
@@ -130,7 +131,7 @@ export function HeroSection() {
         <Link href="/">
           <Image
             src="/images/avatar.png"
-            alt="avatar Eduardo Calvo López"
+            alt="Eduardo Calvo Lopez avatar"
             width={64}
             height={64}
             className="rounded-full p-0.5 border border-zinc-200 bg-zinc-100 dark:bg-zinc-800"
@@ -142,28 +143,34 @@ export function HeroSection() {
             Edu Calvo - Portfolio
           </span>
           <span className="block text-base text-zinc-500 dark:text-zinc-400">
-            Diseñador web y Frontend con sede en Madrid
+            Web designer and frontend developer based in Madrid
           </span>
         </div>
 
-        <p className="mt-4 flex items-center gap-2 text-sm text-zinc-600">
-          <span className="inline-block w-2 h-2 rounded-full bg-lime-400" />
-          Disponible para nuevos proyectos
+        <p className="mt-4 inline-flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+          <span className="relative flex h-3 w-3 items-center justify-center">
+            <span className="absolute inline-flex w-2 h-2 rounded-full opacity-75 animate-ping bg-lime-400" />
+            <span className="relative inline-flex w-2 h-2 rounded-full bg-lime-400" />
+          </span>
+          Available for new projects
         </p>
 
-        <div className="group/social mt-6 flex gap-4">
+        <div className="social-group mt-6 flex gap-4">
           {SOCIAL_LINKS.map((link) => (
-            <div key={link.href} className="relative flex items-center group">
-              <ArrowIcon />
+            <div
+              key={link.href}
+              className="social-item relative flex items-center"
+            >
               <a
                 href={link.href}
                 aria-label={link.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-900 dark:text-zinc-400 transition-all group-hover/social:opacity-20 group-hover/social:blur-sm hover:!opacity-100 hover:!blur-0"
+                className="social-link text-neutral-900 dark:text-zinc-400"
               >
                 {link.icon}
               </a>
+              <ArrowIcon />
             </div>
           ))}
         </div>

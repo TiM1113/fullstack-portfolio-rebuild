@@ -7,16 +7,16 @@ const posts = [
   {
     title: "Lorem Ipsum",
     slug: "post2",
-    date: "18 de febrero de 2023",
-    tag: "Desarrollo",
+    date: "February 18, 2023",
+    tag: "Development",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Lorem Ipsum",
     slug: "post1",
-    date: "18 de enero de 2023",
-    tag: "Desarrollo",
+    date: "January 18, 2023",
+    tag: "Development",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
@@ -29,12 +29,12 @@ export default function BlogPage() {
         <div className="sm:px-8 mt-16 sm:mt-32">
           <div className="mx-auto max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-              Escribiendo sobre diseño de interfaces, programación y hobbies.
+              Writing about interface design, programming, and hobbies.
             </h1>
             <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-              Cuando no estoy programando, puedes encontrarme escribiendo sobre
-              diseño de interfaces, programación y hobbies. Si quieres saber más
-              sobre mí, visita mi perfil en LinkedIn.
+              When I&apos;m not coding, you can find me writing about interface
+              design, programming, and hobbies. If you want to know more about
+              me, visit my LinkedIn profile.
             </p>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function BlogPage() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
               <input
                 type="text"
-                placeholder="Buscar artículos por título o tema"
+                placeholder="Search articles by title or topic"
                 className="w-full h-10 pl-10 pr-4 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400"
               />
             </div>

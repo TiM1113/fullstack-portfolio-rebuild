@@ -1,5 +1,8 @@
+"use client";
+
 import { Layers } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 function TailwindIcon({ className }: { className?: string }) {
   return (
@@ -23,7 +26,7 @@ function NextjsIcon({ className }: { className?: string }) {
 function ReactIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="#61DAFB">
-      <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.31 0-.592.058-.841.176C4.671 2.2 4.19 4.166 4.667 7.01c-2.24.748-3.667 1.92-3.667 3.19 0 1.27 1.43 2.443 3.669 3.192-.479 2.844.04 4.81 1.636 5.5.248.117.53.175.842.175 1.346 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.31 0 .592-.057.841-.175 1.597-.69 2.115-2.656 1.636-5.5 2.24-.749 3.668-1.922 3.668-3.192 0-1.27-1.428-2.442-3.67-3.19.48-2.844-.038-4.81-1.636-5.5a1.867 1.867 0 0 0-.84-.176zm.84 1.328c.792.342 1.086 1.745.742 3.82-.066.39-.157.792-.272 1.202a25.267 25.267 0 0 0-3.33-.752 25.09 25.09 0 0 0-2.15-2.588c1.524-1.416 2.98-2.218 3.978-2.218.177 0 .335.029.473.085zm-6.34.83a23.768 23.768 0 0 1 1.77 2.104 23.946 23.946 0 0 1-3.542 0c.55-.776 1.14-1.502 1.772-2.104zm-5.59-.463c.792-.342 1.774.034 2.914.966a25.09 25.09 0 0 0-2.15 2.588 25.267 25.267 0 0 0-3.33.752 14.157 14.157 0 0 1-.273-1.202c-.344-2.075-.05-3.478.741-3.82a.973.973 0 0 1 .474-.085zM3.5 12.2c0-.64.832-1.395 2.362-1.955a23.996 23.996 0 0 0 1.246 3.014 23.884 23.884 0 0 0-1.248 3.014C4.332 15.596 3.5 14.841 3.5 14.2v-2zm3.268 6.087c-.344 2.075-.05 3.478.741 3.82.138.06.296.087.474.087 1.004 0 2.454-.81 3.978-2.218a25.09 25.09 0 0 1-2.15-2.588 25.267 25.267 0 0 1-3.33-.752c-.115.41-.206.812-.272 1.202zm5.223.667a23.768 23.768 0 0 1-1.77-2.104 25.028 25.028 0 0 0 3.541 0 23.768 23.768 0 0 1-1.77 2.104zm5.59.463c-.792.342-1.774-.034-2.914-.966a25.09 25.09 0 0 0 2.15-2.588c1.18.16 2.3.378 3.33.752.115.41.206.812.273 1.202.344 2.075.05 3.478-.741 3.82a.973.973 0 0 1-.474.085zM20.5 14.2v-2c0-.64-.832-1.395-2.362-1.955a23.996 23.996 0 0 1-1.246 3.014 23.884 23.884 0 0 1 1.248 3.014c1.53-.56 2.36-1.315 2.36-1.955z" />
+      <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.31 0-.592.058-.841.176C4.671 2.2 4.19 4.166 4.667 7.01c-2.24.748-3.667 1.92-3.667 3.19 0 1.27 1.43 2.443 3.669 3.192-.479 2.844.04 4.81 1.636 5.5.248.117.53.175.842.175 1.346 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.31 0 .592-.057.841-.175 1.597-.69 2.115-2.656 1.636-5.5 2.24-.749 3.668-1.922 3.668-3.192 0-1.27-1.428-2.442-3.67-3.19.48-2.844-.038-4.81-1.636-5.5a1.867 1.867 0 0 0-.84-.176z" />
     </svg>
   );
 }
@@ -77,22 +80,74 @@ const stackIcons = [
   { name: "Vercel", icon: VercelIcon },
 ];
 
-export function StackCard() {
+interface MeteorConfig {
+  left: number;
+  delay: number;
+  duration: number;
+}
+
+function Meteor({ config }: { config: MeteorConfig }) {
   return (
-    <div className="group flex flex-col items-start rounded-2xl box-gen p-4 shadow hover:shadow-lg relative col-span-6 sm:col-span-3 md:col-span-3 lg:col-span-2 overflow-hidden">
+    <span
+      className="animate-meteor-effect absolute top-0 h-0.5 w-0.5 rounded-full bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
+      style={{
+        left: `${config.left}px`,
+        animationDelay: `${config.delay}s`,
+        animationDuration: `${config.duration}s`,
+      }}
+    />
+  );
+}
+
+export function StackCard() {
+  const [meteors, setMeteors] = useState<MeteorConfig[]>([]);
+
+  useEffect(() => {
+    // Generate meteor configs on client only to avoid SSR hydration mismatch
+    const configs = Array.from({ length: 8 }).map(() => ({
+      left: Math.floor(Math.random() * 600) - 300,
+      delay: Math.random() * 0.8 + 0.2,
+      duration: Math.floor(Math.random() * 3) + 2,
+    }));
+    setMeteors(configs);
+  }, []);
+
+  return (
+    <div className="group flex flex-col items-start rounded-2xl box-gen p-4 shadow hover:shadow-lg transition-shadow duration-200 relative col-span-6 sm:col-span-3 md:col-span-3 lg:col-span-2 overflow-hidden">
+      {/* SVG grid background */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-60 dark:opacity-40"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="0 0 328 222"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          className="stroke-[#E9E9EB] dark:stroke-[#2f2f2f]"
+          strokeWidth="1"
+          d="M-37 41.5h701M-37 104.5h701M-37 178.5h701M-37 115.5h701M244.5-68v557M83.5-68v557M94.5-68v557M158.5-68v557M169.5-68v557M234.5-68v557"
+        />
+      </svg>
+
+      {/* Meteor shower */}
+      {meteors.map((config, i) => (
+        <Meteor key={i} config={config} />
+      ))}
+
       {/* Section label pill */}
-      <div className="inline-flex items-center h-8 gap-1 px-4 text-sm leading-5 body-primary box-gen rounded-full ring-1 ring-zinc-200 dark:ring-zinc-800">
+      <div className="inline-flex items-center h-8 gap-1 px-4 text-sm leading-5 body-primary box-gen rounded-full ring-1 ring-zinc-200 dark:ring-zinc-800 relative z-10">
         <Layers className="flex-none w-4 h-4" />
         <span>Stack</span>
       </div>
 
       {/* Tech stack grid */}
-      <div className="grid grid-cols-4 gap-2 mt-3 w-full flex-1">
+      <div className="grid grid-cols-4 gap-2 mt-3 w-full flex-1 relative z-10">
         {stackIcons.map((item) => (
           <Link
             key={item.name}
             href="/stack"
-            className="flex items-center justify-center p-3 rounded-lg bg-white dark:bg-zinc-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 ring-1 ring-zinc-200 dark:ring-zinc-700 transition aspect-square"
+            className="flex items-center justify-center p-3 rounded-lg bg-white/60 dark:bg-zinc-800/60 hover:bg-neutral-100 dark:hover:bg-neutral-700 ring-1 ring-zinc-200 dark:ring-zinc-700 transition aspect-square"
           >
             <item.icon className="w-6 h-6" />
           </Link>

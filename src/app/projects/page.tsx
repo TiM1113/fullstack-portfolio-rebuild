@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-export const metadata: Metadata = { title: "Proyectos" };
+export const metadata: Metadata = { title: "Projects" };
 
 const projects = [
   {
     title: "Lorem Ipsum Project",
-    date: "Marzo de 2023",
-    coverImage: "/images/proyectos/cover-lorem-ipsum.png",
+    date: "March 2023",
+    coverImage: "/images/projects/cover-lorem-ipsum.png",
   },
   {
     title: "Lorem Ipsum Project",
-    date: "Febrero de 2023",
-    coverImage: "/images/proyectos/cover-lorem-ipsum.png",
+    date: "February 2023",
+    coverImage: "/images/projects/cover-lorem-ipsum.png",
   },
   {
     title: "Lorem Ipsum Project",
-    date: "Enero de 2023",
-    coverImage: "/images/proyectos/cover-lorem-ipsum.png",
+    date: "January 2023",
+    coverImage: "/images/projects/cover-lorem-ipsum.png",
   },
 ];
 
@@ -25,7 +25,7 @@ const clientLogos = [
   { name: "Tantra", src: "/images/companies/tantra.svg" },
   { name: "BDO", src: "/images/companies/bdo.svg" },
   { name: "Cinetic Digital", src: "/images/companies/cineticdigital.svg" },
-  { name: "Ádraba", src: "/images/companies/adraba.svg" },
+  { name: "Adraba", src: "/images/companies/adraba.svg" },
   { name: "Papaya Group", src: "/images/companies/papayagroup.svg" },
 ];
 
@@ -36,12 +36,12 @@ export default function ProjectsPage() {
         <div className="sm:px-8 mt-16 sm:mt-32">
           <div className="mx-auto max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-              Proyectos que he realizado durante mi carrera.
+              Projects I&apos;ve worked on throughout my career.
             </h1>
             <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-              ¿No sabes por dónde empezar? He trabajado en montones de pequeños
-              y grandes proyectos a lo largo de los años, pero solo me ha sido
-              posible mostrar algunos con el paso del tiempo.
+              Don&apos;t know where to start? I&apos;ve worked on tons of small
+              and large projects over the years, but I&apos;ve only been able
+              to showcase some of them as time has gone on.
             </p>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function ProjectsPage() {
         <div className="sm:px-8 mt-16">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6">
-              Proyectos destacados
+              Featured Projects
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projects.map((project, index) => (

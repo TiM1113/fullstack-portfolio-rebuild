@@ -13,7 +13,7 @@ const assets = [
   { url: `${BASE}/_next/static/media/bdo.3294e30f.svg`, path: "public/images/companies/bdo.svg" },
   { url: `${BASE}/_next/static/media/papayagroup.508e9f2e.svg`, path: "public/images/companies/papayagroup.svg" },
   // Project covers
-  { url: `${BASE}/images/proyectos/cover-lorem-ipsum.png`, path: "public/images/proyectos/cover-lorem-ipsum.png" },
+  { url: `${BASE}/images/proyectos/cover-lorem-ipsum.png`, path: "public/images/projects/cover-lorem-ipsum.png" },
   // Background gradient
   { url: `${BASE}/images/gradient2.svg`, path: "public/images/gradient2.svg" },
   // Favicon

@@ -14,44 +14,44 @@ export const metadata = {
 const testimonials = [
   {
     quote:
-      "Un profesional excepcional que siempre entrega trabajo de alta calidad.",
-    author: "María García",
-    role: "CEO, Startup Digital",
+      "An exceptional professional who consistently delivers high-quality work.",
+    author: "Maria Garcia",
+    role: "CEO, Digital Startup",
   },
   {
-    quote: "Su atención al detalle y creatividad son incomparables.",
-    author: "Carlos López",
-    role: "Director de Marketing",
+    quote: "His attention to detail and creativity are unmatched.",
+    author: "Carlos Lopez",
+    role: "Marketing Director",
   },
   {
-    quote: "Transformó nuestra visión en una realidad digital impresionante.",
-    author: "Ana Martínez",
-    role: "Fundadora, Tech Co",
+    quote: "Transformed our vision into an impressive digital reality.",
+    author: "Ana Martinez",
+    role: "Founder, Tech Co",
   },
   {
-    quote: "Siempre cumple con los plazos y supera las expectativas.",
-    author: "Pedro Sánchez",
+    quote: "Always meets deadlines and exceeds expectations.",
+    author: "Pedro Sanchez",
     role: "Product Manager",
   },
   {
-    quote: "Su trabajo en diseño web es simplemente extraordinario.",
-    author: "Laura Fernández",
-    role: "Directora Creativa",
+    quote: "His web design work is simply extraordinary.",
+    author: "Laura Fernandez",
+    role: "Creative Director",
   },
   {
-    quote: "Recomiendo a Edu sin dudarlo para cualquier proyecto web.",
-    author: "Diego Rodríguez",
+    quote: "I recommend Edu without hesitation for any web project.",
+    author: "Diego Rodriguez",
     role: "CTO, Digital Agency",
   },
 ];
 
 const socialLinks = [
-  { href: "https://twitter.com/educalvolopez", icon: TwitterIcon, label: "Twitter" },
-  { href: "https://instagram.com/educalvolopez", icon: InstagramIcon, label: "Instagram" },
-  { href: "https://github.com/educalvolopez", icon: GithubIcon, label: "GitHub" },
-  { href: "https://linkedin.com/in/educalvolopez", icon: LinkedinIcon, label: "LinkedIn" },
-  { href: "https://read.cv/educalvo", icon: ScrollText, label: "Read.cv" },
-  { href: "mailto:hello@educalvo.com", icon: Mail, label: "Email" },
+  { href: "https://twitter.com/educalvolpz", icon: TwitterIcon, label: "Twitter" },
+  { href: "https://instagram.com/edui_design", icon: InstagramIcon, label: "Instagram" },
+  { href: "https://github.com/educlopez", icon: GithubIcon, label: "GitHub" },
+  { href: "https://linkedin.com/in/educlopez", icon: LinkedinIcon, label: "LinkedIn" },
+  { href: "https://read.cv/educlopez", icon: ScrollText, label: "Read.cv" },
+  { href: "mailto:example@example.com", icon: Mail, label: "Email" },
 ];
 
 export default function AboutPage() {
@@ -65,19 +65,18 @@ export default function AboutPage() {
               {/* Left: Text */}
               <div>
                 <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-                  Soy Edu Calvo, un apasionado del diseño y desarrollo web.
+                  I&apos;m Edu Calvo, passionate about web design and development.
                 </h1>
                 <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 leading-7">
-                  Desde mis inicios en el diseño gráfico, me propuse comprender
-                  todo lo que iba aprendiendo para mejorar continuamente en mi
-                  trabajo. A lo largo de mi carrera, he ido adquiriendo
-                  conocimientos y habilidades en diversas áreas del diseño y
-                  desarrollo, lo que me ha permitido evolucionar como
-                  profesional.
+                  Since my early days in graphic design, I set out to understand
+                  everything I was learning to continuously improve at my work.
+                  Throughout my career, I have been acquiring knowledge and
+                  skills in various areas of design and development, which has
+                  allowed me to evolve as a professional.
                 </p>
                 <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400 leading-7">
-                  Mi enfoque se centra en entender las necesidades del usuario y
-                  la interacción del usuario con la tecnología.
+                  My focus is on understanding user needs and how users interact
+                  with technology.
                 </p>
 
                 {/* Social links */}
@@ -88,6 +87,7 @@ export default function AboutPage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={link.label}
                       className="text-neutral-900 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
                     >
                       <link.icon className="w-6 h-6 stroke-[1.5px]" />
@@ -114,7 +114,7 @@ export default function AboutPage() {
         <div className="sm:px-8 mt-24">
           <div className="mx-auto max-w-xl lg:max-w-5xl">
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white mb-8">
-              Testimonios
+              Testimonials
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {testimonials.map((t, i) => (

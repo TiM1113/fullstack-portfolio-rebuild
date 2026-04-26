@@ -9,82 +9,82 @@ const categories = [
       {
         name: 'MacBook Pro 14" M2 Pro',
         description:
-          "Mi herramienta principal de trabajo. Potente, silencioso y con una pantalla increíble.",
+          "My main work tool. Powerful, silent, and with an incredible display.",
         href: "#",
       },
       {
         name: "Monitor LG 27UK850",
         description:
-          "Monitor 4K con USB-C. Perfecto para diseño y desarrollo.",
+          "4K monitor with USB-C. Perfect for design and development.",
         href: "#",
       },
       {
         name: "Keychron K2",
         description:
-          "Teclado mecánico inalámbrico. Compacto y con buena respuesta táctil.",
+          "Wireless mechanical keyboard. Compact with great tactile feedback.",
         href: "#",
       },
     ],
   },
   {
-    title: "Desarrollo",
+    title: "Development",
     items: [
       {
         name: "Visual Studio Code",
         description:
-          "Mi editor de código principal. Con las extensiones adecuadas es imbatible.",
+          "My main code editor. With the right extensions it's unbeatable.",
         href: "#",
       },
       {
         name: "iTerm2",
         description:
-          "Terminal mejorado para macOS con soporte para splits y perfiles.",
+          "Enhanced terminal for macOS with support for splits and profiles.",
         href: "#",
       },
       {
         name: "GitHub",
         description:
-          "Control de versiones y colaboración. Imprescindible.",
+          "Version control and collaboration. Essential.",
         href: "#",
       },
     ],
   },
   {
-    title: "Diseño",
+    title: "Design",
     items: [
       {
         name: "Figma",
         description:
-          "Mi herramienta de diseño principal. Colaborativa y potente.",
+          "My main design tool. Collaborative and powerful.",
         href: "#",
       },
       {
         name: "Adobe Photoshop",
         description:
-          "Para edición de imágenes y trabajo con fotografías.",
+          "For image editing and photo work.",
         href: "#",
       },
     ],
   },
   {
-    title: "Productividad",
+    title: "Productivity",
     items: [
       {
         name: "Notion",
         description:
-          "Para organizar proyectos, notas y documentación.",
+          "To organize projects, notes, and documentation.",
         href: "#",
       },
       {
         name: "Raycast",
         description:
-          "Lanzador de aplicaciones y productividad para macOS.",
+          "Application launcher and productivity tool for macOS.",
         href: "#",
       },
       {
         name: "Linear",
         description:
-          "Gestión de proyectos para equipos de desarrollo.",
+          "Project management for development teams.",
         href: "#",
       },
     ],
@@ -98,14 +98,14 @@ export default function StackPage() {
         <div className="sm:px-8 mt-16 sm:mt-32">
           <div className="mx-auto max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-              El software que uso, los dispositivos que creo y otras cosas que
-              recomiendo.
+              The software I use, the devices I work with, and other things I
+              recommend.
             </h1>
             <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-              Me preguntan mucho sobre las cosas que uso para crear software,
-              mantenerme productivo o comprar para engañarme y pensar que estoy
-              siendo productivo cuando en realidad solo estoy procrastinando.
-              Aquí está una gran lista de todas mis cosas favoritas.
+              People ask me a lot about the things I use to build software,
+              stay productive, or buy to trick myself into thinking I&apos;m
+              being productive when I&apos;m really just procrastinating.
+              Here&apos;s a big list of all my favorite stuff.
             </p>
           </div>
         </div>

@@ -11,16 +11,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Edu Calvo - Dise\u00f1ador Web & Frontend",
+    default: "Edu Calvo - Web Designer & Frontend Developer",
     template: "%s | Edu Calvo",
   },
-  description: "Dise\u00f1ador web y Frontend con sede en Madrid",
+  description: "Web designer and frontend developer based in Madrid",
   openGraph: {
     title: "Edu Calvo",
-    description: "Dise\u00f1ador web y Frontend con sede en Madrid",
+    description: "Web designer and frontend developer based in Madrid",
     url: "https://educalvolopez-com.vercel.app/",
     siteName: "Edu Calvo",
-    locale: "es-ES",
+    locale: "en-US",
     type: "website",
     images: [
       {
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-zinc-50 text-black bg-[url('/images/gradient2.svg')] bg-no-repeat bg-top dark:bg-zinc-900 dark:text-white">
         <ThemeProvider>
           {children}

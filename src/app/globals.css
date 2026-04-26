@@ -122,19 +122,94 @@
 
 /* Shared card glassmorphism style used across bento cards and nav */
 .box-gen {
-  background-color: var(--card);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid oklch(1 0 0 / 20%);
+  background-color: oklch(1 0 0 / 70%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid oklch(1 0 0 / 60%);
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 4%),
+    0 0 0 1px oklch(0 0 0 / 4%);
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.box-gen:hover {
+  box-shadow:
+    0 12px 32px oklch(0 0 0 / 12%),
+    0 0 0 1px oklch(0 0 0 / 6%);
 }
 
 .dark .box-gen {
-  border-color: oklch(1 0 0 / 10%);
+  background-color: oklch(0.205 0 0 / 70%);
+  border-color: oklch(1 0 0 / 8%);
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 30%),
+    inset 0 0 0 1px oklch(1 0 0 / 4%);
+}
+
+.dark .box-gen:hover {
+  box-shadow:
+    0 12px 32px oklch(0 0 0 / 50%),
+    inset 0 0 0 1px oklch(1 0 0 / 8%);
 }
 
 /* Section label pill shared style */
 .body-primary {
   color: var(--foreground);
+}
+
+/* Social links group-hover effect (Tailwind v4 named groups don't compile) */
+.social-group:hover .social-link {
+  opacity: 0.2;
+  filter: blur(4px);
+  transition: opacity 200ms ease, filter 200ms ease;
+}
+.social-group .social-link {
+  transition: opacity 200ms ease, filter 200ms ease;
+}
+.social-group:hover .social-link:hover {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Meteor shower animation for Stack card */
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+  }
+}
+.animate-meteor-effect {
+  animation: 5s linear 0s infinite normal none running meteor;
+}
+.animate-meteor-effect::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, #64748b, transparent);
+}
+
+/* Social link arrow indicator */
+.social-item .social-arrow {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+.social-item:hover .social-arrow {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 @layer base {

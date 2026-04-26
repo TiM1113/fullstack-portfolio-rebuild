@@ -2,20 +2,25 @@ import Image from "next/image";
 
 export function SpotifyCard() {
   return (
-    <div className="group flex items-center gap-3 rounded-2xl box-gen p-4 shadow hover:shadow-lg overflow-hidden relative">
-      {/* Album art */}
-      <div className="relative">
+    <div className="group flex items-center gap-4 rounded-2xl box-gen p-4 shadow hover:shadow-lg transition-shadow duration-200 overflow-hidden relative">
+      {/* Vinyl record container */}
+      <div className="relative w-12 h-12 flex-none">
+        {/* Outer ring */}
+        <div className="absolute inset-0 z-20 m-auto w-8 h-8 bg-transparent border rounded-full border-white/20 dark:border-white/10 outline outline-1 outline-offset-4 outline-white/20 dark:outline-white/10" />
+        {/* Center hole */}
+        <div className="absolute inset-0 z-20 m-auto w-1 h-1 bg-white rounded-full dark:bg-neutral-900" />
+        {/* Spinning album art */}
         <Image
           src="/images/spotify/album-art.jpg"
           alt="Sky Becomes Water"
           width={64}
           height={64}
-          className="rounded-lg absolute z-10"
+          className="absolute inset-0 z-10 m-auto w-8 h-8 object-cover rounded-full aspect-square animate-[spin_3s_linear_infinite]"
         />
       </div>
 
       {/* Track info */}
-      <div className="flex flex-col min-w-0 flex-1 ml-16">
+      <div className="flex flex-col min-w-0 flex-1">
         <a
           href="https://open.spotify.com/track/7e4qdUt1TBfovilB8GtEIM"
           target="_blank"
@@ -29,15 +34,16 @@ export function SpotifyCard() {
         </p>
       </div>
 
-      {/* Spotify link */}
+      {/* Spotify link icon */}
       <a
         href="https://open.spotify.com/track/7e4qdUt1TBfovilB8GtEIM"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-none"
+        className="flex-none box-gen ring-1 ring-zinc-200 dark:ring-zinc-800 rounded-md p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+        aria-label="Open in Spotify"
       >
         <svg
-          className="w-5 h-5 text-[#1DB954]"
+          className="w-4 h-4 text-zinc-600 dark:text-zinc-400"
           viewBox="0 0 24 24"
           fill="currentColor"
         >

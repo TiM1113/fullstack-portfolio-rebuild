@@ -13,17 +13,24 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import { useState } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Inicio", href: "/", icon: "avatar" },
+  { label: "Home", href: "/", icon: "avatar" },
   { label: "About", href: "/about", icon: "user" },
   { label: "Blog", href: "/blog", icon: "book" },
-  { label: "Proyectos", href: "/proyectos", icon: "code" },
+  { label: "Projects", href: "/projects", icon: "code" },
   { label: "Stack", href: "/stack", icon: "layers" },
   {
-    label: "Tienda",
+    label: "Shop",
     href: "https://educalvolopez.lemonsqueezy.com/",
     icon: "cart",
     isExternal: true,
@@ -38,48 +45,56 @@ const iconMap = {
   cart: ShoppingCart,
 } as const;
 
-function NavButton({
+function DockIcon({
+  mouseX,
   label,
   href,
   icon,
   isExternal,
   isActive,
 }: {
+  mouseX: MotionValue<number>;
   label: string;
   href: string;
   icon: string;
   isExternal?: boolean;
   isActive: boolean;
 }) {
-  const [hovered, setHovered] = useState(false);
-  const LinkComp = isExternal ? "a" : Link;
+  const ref = useRef<HTMLDivElement>(null);
+
+  const distance = useTransform(mouseX, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+    return val - bounds.x - bounds.width / 2;
+  });
+
+  // Width grows from 40 → 80 based on distance, peak at 0
+  const widthSync = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const width = useSpring(widthSync, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
+
   const linkProps = isExternal
-    ? { href, target: "_blank", rel: "noopener noreferrer" }
-    : { href };
+    ? { target: "_blank" as const, rel: "noopener noreferrer" }
+    : {};
+
+  const Wrapper = isExternal ? "a" : Link;
 
   return (
-    <button
-      className="relative"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <LinkComp {...linkProps} className="block">
-        {/* Tooltip */}
-        <span
-          className={cn(
-            "absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white transition-all dark:bg-zinc-200 dark:text-zinc-900",
-            hovered
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-1 pointer-events-none"
-          )}
-        >
+    <div className="group relative">
+      <Wrapper href={href} {...linkProps} className="block">
+        {/* Tooltip — pure CSS group-hover */}
+        <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white dark:bg-zinc-200 dark:text-zinc-900 opacity-0 translate-y-1 pointer-events-none transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0">
           {label}
         </span>
 
-        {/* Icon */}
-        <div
+        {/* Magnifying icon container */}
+        <motion.div
+          ref={ref}
+          style={{ width }}
           className={cn(
-            "z-30 flex items-center justify-center w-10 rounded-full",
+            "z-30 flex items-center justify-center aspect-square rounded-full",
             "bg-neutral-200/70 dark:bg-neutral-700/50",
             isActive && "ring-2 ring-zinc-400 dark:ring-zinc-500"
           )}
@@ -87,38 +102,44 @@ function NavButton({
           {icon === "avatar" ? (
             <Image
               src="/images/avatar.png"
-              alt="avatar Eduardo Calvo L\u00f3pez"
+              alt="Eduardo Calvo Lopez avatar"
               width={40}
               height={40}
-              className="rounded-full"
+              className="rounded-full w-full h-full object-cover p-0.5"
             />
           ) : (
-            <div className="p-2">
-              {(() => {
-                const Icon = iconMap[icon as keyof typeof iconMap];
-                return Icon ? (
-                  <Icon className="w-5 h-5 transition fill-white dark:fill-neutral-600 dark:stroke-neutral-300 stroke-neutral-900" />
-                ) : null;
-              })()}
-            </div>
+            <DockSvgIcon name={icon} />
           )}
-        </div>
-      </LinkComp>
-    </button>
+        </motion.div>
+      </Wrapper>
+    </div>
+  );
+}
+
+function DockSvgIcon({ name }: { name: string }) {
+  const Icon = iconMap[name as keyof typeof iconMap];
+  if (!Icon) return null;
+  return (
+    <Icon className="w-1/2 h-1/2 transition fill-white dark:fill-neutral-600 dark:stroke-neutral-300 stroke-neutral-900" />
   );
 }
 
 export function BottomNav() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
-  const [themeHovered, setThemeHovered] = useState(false);
+  const mouseX = useMotionValue(Infinity);
 
   return (
     <div className="fixed z-10 flex-col bottom-8 left-1/2 -translate-x-1/2 hidden pointer-events-auto md:flex">
-      <div className="flex items-end h-16 gap-4 px-4 pb-2.5 mx-auto outline-0 rounded-2xl box-gen ring-1 ring-zinc-200 dark:ring-[#1a1a1a]">
+      <motion.div
+        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseLeave={() => mouseX.set(Infinity)}
+        className="flex items-end h-16 gap-4 px-4 pb-2.5 mx-auto outline-0 rounded-2xl box-gen ring-1 ring-zinc-200 dark:ring-[#1a1a1a]"
+      >
         {navItems.map((item) => (
-          <NavButton
+          <DockIcon
             key={item.href}
+            mouseX={mouseX}
             label={item.label}
             href={item.href}
             icon={item.icon}
@@ -135,28 +156,18 @@ export function BottomNav() {
         <hr className="h-10 w-[1px] bg-neutral-300 dark:bg-neutral-700 mt-2.5 border-none" />
 
         {/* Theme toggle */}
-        <button
-          className="relative"
-          onClick={toggleTheme}
-          onMouseEnter={() => setThemeHovered(true)}
-          onMouseLeave={() => setThemeHovered(false)}
-        >
-          <span
-            className={cn(
-              "absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white transition-all dark:bg-zinc-200 dark:text-zinc-900",
-              themeHovered
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-1 pointer-events-none"
-            )}
-          >
-            {theme === "light" ? "Cambiar a oscuro" : "Cambiar a claro"}
-          </span>
-          <div className="z-30 flex items-center justify-center w-10 rounded-full cursor-pointer bg-neutral-200/70 dark:bg-neutral-700/50 p-2">
-            <Sun className="w-5 h-5 transition fill-white dark:fill-neutral-600 dark:hidden dark:stroke-neutral-300 stroke-neutral-900" />
-            <Moon className="hidden w-5 h-5 transition fill-white dark:fill-neutral-600 dark:block dark:stroke-neutral-300 stroke-neutral-900" />
-          </div>
-        </button>
-      </div>
+        <div className="group relative">
+          <button onClick={toggleTheme} className="block">
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white dark:bg-zinc-200 dark:text-zinc-900 opacity-0 translate-y-1 pointer-events-none transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0">
+              {theme === "light" ? "Switch to dark" : "Switch to light"}
+            </span>
+            <div className="z-30 flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-neutral-200/70 dark:bg-neutral-700/50 p-2">
+              <Sun className="w-5 h-5 transition fill-white dark:fill-neutral-600 dark:hidden dark:stroke-neutral-300 stroke-neutral-900" />
+              <Moon className="hidden w-5 h-5 transition fill-white dark:fill-neutral-600 dark:block dark:stroke-neutral-300 stroke-neutral-900" />
+            </div>
+          </button>
+        </div>
+      </motion.div>
     </div>
   );
 }
