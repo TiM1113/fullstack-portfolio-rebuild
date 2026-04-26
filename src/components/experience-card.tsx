@@ -1,44 +1,51 @@
 "use client";
 
-import Image from "next/image";
-import { Briefcase, ScrollText, Download } from "lucide-react";
+import {
+  Briefcase,
+  ScrollText,
+  Download,
+  GraduationCap,
+  Palette,
+  type LucideIcon,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const experiences = [
+interface Experience {
+  org: string;
+  startYear: string;
+  endYear: string;
+  role: string;
+  Icon: LucideIcon;
+}
+
+const experiences: Experience[] = [
   {
-    company: "Cinetic Digital",
-    startYear: "2021",
-    endYear: "Present",
-    role: "Web Designer & Frontend Developer",
-    logo: "/images/companies/cineticdigital.svg",
+    org: "Flinders University",
+    startYear: "2024",
+    endYear: "2025",
+    role: "Master of Information Technology — Graduated",
+    Icon: GraduationCap,
   },
   {
-    company: "Adraba",
-    startYear: "2018",
-    endYear: "2021",
-    role: "Graphic Designer & Web Developer",
-    logo: "/images/companies/adraba.svg",
+    org: "University of South Australia",
+    startYear: "2023",
+    endYear: "2024",
+    role: "Master of IT (Enterprise Management)",
+    Icon: GraduationCap,
   },
   {
-    company: "Tantra",
-    startYear: "2015",
-    endYear: "2019",
-    role: "Graphic Designer & Web Layout",
-    logo: "/images/companies/tantra.svg",
+    org: "Beijing & Shanghai Studios",
+    startYear: "2009",
+    endYear: "2023",
+    role: "Designer & IT Coordinator",
+    Icon: Briefcase,
   },
   {
-    company: "BDO",
-    startYear: "2016",
-    endYear: "2017",
-    role: "Graphic Designer & Web Layout",
-    logo: "/images/companies/bdo.svg",
-  },
-  {
-    company: "Papaya Group",
-    startYear: "2014",
-    endYear: "2014",
-    role: "Graphic Designer",
-    logo: "/images/companies/papayagroup.svg",
+    org: "Nanjing University of the Arts",
+    startYear: "2005",
+    endYear: "2009",
+    role: "B.A. Animation",
+    Icon: Palette,
   },
 ];
 
@@ -46,7 +53,7 @@ function WorkItem({
   exp,
   containerRef,
 }: {
-  exp: (typeof experiences)[number];
+  exp: Experience;
   containerRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const itemRef = useRef<HTMLDivElement>(null);
@@ -72,6 +79,8 @@ function WorkItem({
     return () => observer.disconnect();
   }, [containerRef]);
 
+  const { Icon } = exp;
+
   return (
     <div
       ref={itemRef}
@@ -81,17 +90,13 @@ function WorkItem({
         opacity: isActive ? 1 : 0.3,
       }}
     >
-      <Image
-        src={exp.logo}
-        alt={exp.role}
-        width={40}
-        height={40}
-        className="relative flex items-center justify-center flex-none w-10 h-10 mt-1 rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
-      />
+      <div className="relative flex items-center justify-center flex-none w-10 h-10 mt-1 rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 bg-white dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+        <Icon className="w-5 h-5 stroke-zinc-700 dark:stroke-zinc-300" strokeWidth={1.5} />
+      </div>
       <div className="flex flex-col text-sm">
-        <span className="sr-only">Company and Date</span>
+        <span className="sr-only">Organisation and Date</span>
         <span className="text-zinc-900 dark:text-zinc-100">
-          {exp.company} -{" "}
+          {exp.org} -{" "}
           <span aria-label={`${exp.startYear} until ${exp.endYear}`}>
             <time>{exp.startYear}</time> — <time>{exp.endYear}</time>
           </span>
@@ -119,21 +124,23 @@ export function ExperienceCard() {
       >
         <div className="flex flex-col gap-4 w-full">
           {experiences.map((exp) => (
-            <WorkItem key={exp.company} exp={exp} containerRef={scrollRef} />
+            <WorkItem key={exp.org} exp={exp} containerRef={scrollRef} />
           ))}
         </div>
       </div>
 
       <div className="flex gap-2 mt-auto w-full">
         <a
-          href="https://read.cv/educlopez"
+          href="https://github.com/TiM1113"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-1 box-gen outline-0 ring-1 ring-zinc-200 dark:ring-[#1a1a1a] h-[34px] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md text-sm transition"
         >
           <ScrollText className="w-4 h-4 stroke-zinc-600 dark:stroke-zinc-400" />
-          Read.cv
+          GitHub
         </a>
         <a
-          href="/images/blog/cover-lorem-ipsum.png"
+          href="/cv/Tim-Yuan-CV.pdf"
           className="flex-1 inline-flex items-center justify-center gap-1 box-gen outline-0 ring-1 ring-zinc-200 dark:ring-[#1a1a1a] h-[34px] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md text-sm transition"
         >
           <Download className="w-4 h-4 transition stroke-zinc-600 dark:stroke-zinc-400" />

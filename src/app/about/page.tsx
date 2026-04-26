@@ -1,57 +1,34 @@
 import Image from "next/image";
 import { ScrollText, Mail } from "lucide-react";
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GithubIcon,
-  LinkedinIcon,
-} from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
 
 export const metadata = {
   title: "About",
 };
 
-const testimonials = [
+const practices = [
   {
-    quote:
-      "An exceptional professional who consistently delivers high-quality work.",
-    author: "Maria Garcia",
-    role: "CEO, Digital Startup",
+    title: "Learn-by-shipping loop",
+    body: "Every new technology entered my toolkit through a real feature, not a tutorial. Picked up Hono, Drizzle, PostgreSQL, NextAuth v5, and shadcn/ui by using them to migrate working code — forcing real tradeoffs that reading blog posts can't teach.",
   },
   {
-    quote: "His attention to detail and creativity are unmatched.",
-    author: "Carlos Lopez",
-    role: "Marketing Director",
+    title: "AI as an independent verifier, not auto-complete",
+    body: "Designed a workflow where Claude writes code + test specs while Codex (GPT-5.4) independently writes and runs tests. Eliminated the self-review \u201Cfake-green\u201D pattern that plagued my earlier phases. Taught me to design AI collaboration around distrust, not blind trust.",
   },
   {
-    quote: "Transformed our vision into an impressive digital reality.",
-    author: "Ana Martinez",
-    role: "Founder, Tech Co",
+    title: "AI tooling as infrastructure",
+    body: "Maintain tim-dev-rig — a version-controlled Claude Code harness (global rules, hooks, custom slash-command skills). Every lesson from a failed PR gets distilled back into the rig. Meta-engineering mindset: the workflows AI assistants run on matter as much as the code they produce.",
   },
   {
-    quote: "Always meets deadlines and exceeds expectations.",
-    author: "Pedro Sanchez",
-    role: "Product Manager",
-  },
-  {
-    quote: "His web design work is simply extraordinary.",
-    author: "Laura Fernandez",
-    role: "Creative Director",
-  },
-  {
-    quote: "I recommend Edu without hesitation for any web project.",
-    author: "Diego Rodriguez",
-    role: "CTO, Digital Agency",
+    title: "Observation-first debugging",
+    body: "Hard rule against source-level guessing — collect runtime evidence (curl, Vercel logs, Sentry) before changing code. Learned the hard way after rounds of \u201Cshould be X\u201D that turned out wrong.",
   },
 ];
 
 const socialLinks = [
-  { href: "https://twitter.com/educalvolpz", icon: TwitterIcon, label: "Twitter" },
-  { href: "https://instagram.com/edui_design", icon: InstagramIcon, label: "Instagram" },
-  { href: "https://github.com/educlopez", icon: GithubIcon, label: "GitHub" },
-  { href: "https://linkedin.com/in/educlopez", icon: LinkedinIcon, label: "LinkedIn" },
-  { href: "https://read.cv/educlopez", icon: ScrollText, label: "Read.cv" },
-  { href: "mailto:example@example.com", icon: Mail, label: "Email" },
+  { href: "https://github.com/TiM1113", icon: GithubIcon, label: "GitHub (personal)" },
+  { href: "https://github.com/yuan0173", icon: ScrollText, label: "GitHub (school)" },
+  { href: "mailto:yuantian1113@gmail.com", icon: Mail, label: "Email" },
 ];
 
 export default function AboutPage() {
@@ -65,18 +42,20 @@ export default function AboutPage() {
               {/* Left: Text */}
               <div>
                 <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-                  I&apos;m Edu Calvo, passionate about web design and development.
+                  I&apos;m Tim Yuan, an engineer who learns by shipping.
                 </h1>
                 <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 leading-7">
-                  Since my early days in graphic design, I set out to understand
-                  everything I was learning to continuously improve at my work.
-                  Throughout my career, I have been acquiring knowledge and
-                  skills in various areas of design and development, which has
-                  allowed me to evolve as a professional.
+                  Grew from a traditional MERN background into modern
+                  AI-native full-stack delivery by rebuilding a production
+                  food-delivery platform through 6 deliberate phases — each
+                  phase a focused learning loop covering architecture
+                  migration, test rigor, security hardening, or observability.
                 </p>
                 <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400 leading-7">
-                  My focus is on understanding user needs and how users interact
-                  with technology.
+                  Comfortable pairing with AI agents as independent verifiers,
+                  not auto-completers. Master of Information Technology
+                  graduate from Flinders University. Based in Adelaide; full
+                  Australian work rights, no sponsorship required.
                 </p>
 
                 {/* Social links */}
@@ -100,7 +79,7 @@ export default function AboutPage() {
               <div>
                 <Image
                   src="/images/avatar.png"
-                  alt="Edu Calvo"
+                  alt="Tim Yuan"
                   width={400}
                   height={400}
                   className="rounded-2xl object-cover aspect-square"
@@ -110,29 +89,24 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Testimonials Section */}
+        {/* Engineering Practice Section */}
         <div className="sm:px-8 mt-24">
           <div className="mx-auto max-w-xl lg:max-w-5xl">
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white mb-8">
-              Testimonials
+              Engineering Practice &amp; Learning
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {testimonials.map((t, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {practices.map((p) => (
                 <div
-                  key={i}
+                  key={p.title}
                   className="rounded-2xl box-gen p-6 shadow ring-1 ring-zinc-200 dark:ring-zinc-800"
                 >
-                  <blockquote className="text-sm text-zinc-600 dark:text-zinc-400 leading-6">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <div className="mt-4">
-                    <p className="text-sm font-medium text-zinc-900 dark:text-white">
-                      {t.author}
-                    </p>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-500">
-                      {t.role}
-                    </p>
-                  </div>
+                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-6">
+                    {p.body}
+                  </p>
                 </div>
               ))}
             </div>

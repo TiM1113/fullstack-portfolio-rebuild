@@ -102,7 +102,7 @@ function DockIcon({
           {icon === "avatar" ? (
             <Image
               src="/images/avatar.png"
-              alt="Eduardo Calvo Lopez avatar"
+              alt="Tim Yuan avatar"
               width={40}
               height={40}
               className="rounded-full w-full h-full object-cover p-0.5"

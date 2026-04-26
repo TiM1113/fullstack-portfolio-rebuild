@@ -66,7 +66,7 @@ export function ProjectsCard() {
         >
           <Image
             src="/images/projects/cover-lorem-ipsum.png"
-            alt="Lorem Ipsum Project"
+            alt="Featured project preview"
             width={240}
             height={180}
             className="bg-black shadow-xl rounded-2xl select-none opacity-80"
@@ -92,7 +92,7 @@ export function ProjectsCard() {
           >
             <Image
               src="/images/projects/cover-lorem-ipsum.png"
-              alt="Lorem Ipsum Project"
+              alt="Featured project preview"
               width={240}
               height={180}
               className="rounded-2xl select-none"

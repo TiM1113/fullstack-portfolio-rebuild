@@ -4,88 +4,127 @@ export const metadata: Metadata = { title: "Stack" };
 
 const categories = [
   {
-    title: "Workstation",
+    title: "Frontend",
     items: [
       {
-        name: 'MacBook Pro 14" M2 Pro',
+        name: "Next.js 16 + React 19",
         description:
-          "My main work tool. Powerful, silent, and with an incredible display.",
-        href: "#",
+          "App Router, TypeScript strict, Turbopack. The default for everything I ship.",
       },
       {
-        name: "Monitor LG 27UK850",
+        name: "Tailwind CSS v4 + shadcn/ui",
         description:
-          "4K monitor with USB-C. Perfect for design and development.",
-        href: "#",
+          "Utility-first styling with oklch design tokens. shadcn for primitives, customised per project.",
       },
       {
-        name: "Keychron K2",
+        name: "Motion (Framer Motion v12)",
         description:
-          "Wireless mechanical keyboard. Compact with great tactile feedback.",
-        href: "#",
+          "Spring-driven animation primitives — dock magnification, 3D tilt, layout transitions.",
+      },
+      {
+        name: "TanStack Query v5 + Zustand",
+        description:
+          "Server state (TanStack) and client state (Zustand) cleanly separated.",
       },
     ],
   },
   {
-    title: "Development",
+    title: "Backend & Data",
     items: [
       {
-        name: "Visual Studio Code",
+        name: "Hono",
         description:
-          "My main code editor. With the right extensions it's unbeatable.",
-        href: "#",
+          "Fast, typed router for Vercel Serverless. Replaced Express in my food-delivery rebuild.",
       },
       {
-        name: "iTerm2",
+        name: ".NET 8 Web API",
         description:
-          "Enhanced terminal for macOS with support for splits and profiles.",
-        href: "#",
+          "C# / EF Core for systems I built during my Master's program.",
       },
       {
-        name: "GitHub",
+        name: "PostgreSQL + Drizzle ORM",
         description:
-          "Version control and collaboration. Essential.",
-        href: "#",
+          "Neon-serverless driver for transaction support, jsonb_set for race-free cart updates.",
+      },
+      {
+        name: "Zod schema contracts",
+        description:
+          "Typed end-to-end via shared package. Request validation + DB write enforcement.",
       },
     ],
   },
   {
-    title: "Design",
+    title: "Auth, Payments, Quality",
     items: [
       {
-        name: "Figma",
+        name: "NextAuth v5 + JWT/RBAC",
         description:
-          "My main design tool. Collaborative and powerful.",
-        href: "#",
+          "Cookie-based sessions, role-based access control, bcrypt password hashing.",
       },
       {
-        name: "Adobe Photoshop",
+        name: "Stripe",
         description:
-          "For image editing and photo work.",
-        href: "#",
+          "Webhook signature verification, refund flows, KYC identity verification, idempotency keys.",
+      },
+      {
+        name: "Vitest + Playwright",
+        description:
+          "70 backend + 101 E2E tests after learning the cost of self-reviewed \u201Cfake-green\u201D test suites.",
+      },
+      {
+        name: "Sentry + Vercel Analytics",
+        description:
+          "Tuned trace sampling, full-stack error tracking, Speed Insights for real user data.",
       },
     ],
   },
   {
-    title: "Productivity",
+    title: "AI Toolchain",
     items: [
       {
-        name: "Notion",
+        name: "Claude Code (Opus 4)",
         description:
-          "To organize projects, notes, and documentation.",
-        href: "#",
+          "Primary code-writing agent. Driven through a custom harness with hooks, skills, and memory.",
       },
       {
-        name: "Raycast",
+        name: "Codex CLI (GPT-5.4)",
         description:
-          "Application launcher and productivity tool for macOS.",
-        href: "#",
+          "Independent reviewer/test-writer. Designed to distrust Claude\u2019s output, not extend it.",
       },
       {
-        name: "Linear",
+        name: "MCP servers",
         description:
-          "Project management for development teams.",
-        href: "#",
+          "Playwright, Notion, Gmail, Calendar, Drive — context bridges into external systems.",
+      },
+      {
+        name: "Multi-platform skill authoring",
+        description:
+          "Skills shipped to Claude / Codex / OpenClaw / Hermes from a single source via sync scripts.",
+      },
+    ],
+  },
+  {
+    title: "Infra & DevOps",
+    items: [
+      {
+        name: "Vercel",
+        description:
+          "Default deployment target. Preview deployments per PR, edge config for serverless.",
+      },
+      {
+        name: "AWS S3 + Lambda",
+        description:
+          "Direct S3 presigned uploads for user content, Lambda for legacy task glue.",
+      },
+      {
+        name: "Upstash Redis",
+        description:
+          "Serverless Redis for rate limiting and ephemeral cache.",
+      },
+      {
+        name: "GitHub Actions + CodeRabbit + Husky + Dependabot",
+        description:
+          "CI gates, AI PR reviewer, pre-commit hooks, automated dependency upgrades.",
       },
     ],
   },
@@ -98,14 +137,12 @@ export default function StackPage() {
         <div className="sm:px-8 mt-16 sm:mt-32">
           <div className="mx-auto max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-              The software I use, the devices I work with, and other things I
-              recommend.
+              The tools and stack I&apos;m reaching for right now.
             </h1>
             <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-              People ask me a lot about the things I use to build software,
-              stay productive, or buy to trick myself into thinking I&apos;m
-              being productive when I&apos;m really just procrastinating.
-              Here&apos;s a big list of all my favorite stuff.
+              Libraries, services, and AI tools that earned a place in my
+              workflow by surviving a real shipping cycle. Updated as my
+              projects evolve.
             </p>
           </div>
         </div>
@@ -122,14 +159,7 @@ export default function StackPage() {
                   {cat.items.map((item) => (
                     <div key={item.name}>
                       <h3 className="text-sm font-medium text-zinc-900 dark:text-white">
-                        <a
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline text-blue-600 dark:text-blue-400"
-                        >
-                          {item.name}
-                        </a>
+                        {item.name}
                       </h3>
                       <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-6">
                         {item.description}

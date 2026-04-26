@@ -11,15 +11,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Edu Calvo - Web Designer & Frontend Developer",
-    template: "%s | Edu Calvo",
+    default: "Tim Yuan — Software Engineer & AI-Native Engineer",
+    template: "%s | Tim Yuan",
   },
-  description: "Web designer and frontend developer based in Madrid",
+  description:
+    "Software Engineer, Full-Stack Developer, and AI-Native Engineer based in Adelaide, Australia.",
   openGraph: {
-    title: "Edu Calvo",
-    description: "Web designer and frontend developer based in Madrid",
-    url: "https://educalvolopez-com.vercel.app/",
-    siteName: "Edu Calvo",
+    title: "Tim Yuan",
+    description:
+      "Software Engineer, Full-Stack Developer, and AI-Native Engineer based in Adelaide, Australia.",
+    siteName: "Tim Yuan",
     locale: "en-US",
     type: "website",
     images: [

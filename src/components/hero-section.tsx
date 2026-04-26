@@ -6,50 +6,8 @@ import { ScrollText, Mail } from "lucide-react";
 
 const SOCIAL_LINKS = [
   {
-    href: "https://twitter.com/educalvolpz",
-    label: "Follow on Twitter",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-      >
-        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-      </svg>
-    ),
-  },
-  {
-    href: "https://instagram.com/edui_design",
-    label: "Follow on Instagram",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-      >
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-      </svg>
-    ),
-  },
-  {
-    href: "https://github.com/educlopez",
-    label: "Follow on GitHub",
+    href: "https://github.com/TiM1113",
+    label: "GitHub (personal)",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -69,34 +27,12 @@ const SOCIAL_LINKS = [
     ),
   },
   {
-    href: "https://linkedin.com/in/educlopez",
-    label: "Follow on LinkedIn",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-      >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect width="4" height="12" x="2" y="9" />
-        <circle cx="4" cy="4" r="2" />
-      </svg>
-    ),
-  },
-  {
-    href: "https://read.cv/educlopez",
-    label: "Read.cv",
+    href: "https://github.com/yuan0173",
+    label: "GitHub (school)",
     icon: <ScrollText className="h-6 w-6" strokeWidth={1.5} />,
   },
   {
-    href: "mailto:example@example.com",
+    href: "mailto:yuantian1113@gmail.com",
     label: "Send Email",
     icon: <Mail className="h-6 w-6" strokeWidth={1.5} />,
   },
@@ -126,12 +62,12 @@ export function HeroSection() {
   return (
     <div className="sm:px-8 mt-16 sm:mt-32">
       <div className="mx-auto max-w-xl">
-        <h1 className="sr-only">Edu Calvo - Portfolio</h1>
+        <h1 className="sr-only">Tim Yuan - Portfolio</h1>
 
         <Link href="/">
           <Image
             src="/images/avatar.png"
-            alt="Eduardo Calvo Lopez avatar"
+            alt="Tim Yuan avatar"
             width={64}
             height={64}
             className="rounded-full p-0.5 border border-zinc-200 bg-zinc-100 dark:bg-zinc-800"
@@ -140,10 +76,10 @@ export function HeroSection() {
 
         <div className="mt-6">
           <span className="block text-base font-normal leading-7 text-zinc-900 dark:text-white">
-            Edu Calvo - Portfolio
+            Tian (Tim) Yuan
           </span>
           <span className="block text-base text-zinc-500 dark:text-zinc-400">
-            Web designer and frontend developer based in Madrid
+            Software Engineer & Full-Stack Developer · AI-Native practitioner · Adelaide
           </span>
         </div>
 

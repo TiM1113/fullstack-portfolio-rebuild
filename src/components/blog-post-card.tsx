@@ -10,20 +10,21 @@ export function BlogPostCard() {
       </div>
 
       <time className="text-sm text-zinc-500 dark:text-zinc-400">
-        February 18, 2023
+        Coming soon
       </time>
 
       <h2 className="text-base font-semibold tracking-tight text-zinc-900 dark:text-white">
-        <Link href="/blog/post2" className="hover:underline">
-          Lorem Ipsum
+        <Link href="/blog" className="hover:underline">
+          Why I treat AI tooling as infrastructure
         </Link>
       </h2>
 
-      <span className="text-sm text-zinc-500">#Development</span>
+      <span className="text-sm text-zinc-500">#AI · #Tooling</span>
 
       <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Notes from running Claude as code-writer and Codex as independent
+        verifier across a 6-phase production rebuild — and the
+        version-controlled harness that ties it together.
       </p>
     </div>
   );
