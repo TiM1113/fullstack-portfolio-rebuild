@@ -2,93 +2,47 @@
 
 import {
   Briefcase,
-  ScrollText,
   Download,
   GraduationCap,
   Palette,
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { GithubIcon } from "@/components/icons";
+import { SectionPill } from "@/components/ui/section-pill";
+import {
+  experienceItems,
+  siteConfig,
+  type ExperienceItem,
+} from "@/data/site-content";
+import { cn } from "@/lib/utils";
 
-interface Experience {
-  org: string;
-  startYear: string;
-  endYear: string;
-  role: string;
-  Icon: LucideIcon;
-}
+const iconMap: Record<string, LucideIcon> = {
+  briefcase: Briefcase,
+  graduation: GraduationCap,
+  palette: Palette,
+};
 
-const experiences: Experience[] = [
-  {
-    org: "Flinders University",
-    startYear: "2024",
-    endYear: "2025",
-    role: "Master of Information Technology — Graduated",
-    Icon: GraduationCap,
-  },
-  {
-    org: "University of South Australia",
-    startYear: "2023",
-    endYear: "2024",
-    role: "Master of IT (Enterprise Management)",
-    Icon: GraduationCap,
-  },
-  {
-    org: "Beijing & Shanghai Studios",
-    startYear: "2009",
-    endYear: "2023",
-    role: "Designer & IT Coordinator",
-    Icon: Briefcase,
-  },
-  {
-    org: "Nanjing University of the Arts",
-    startYear: "2005",
-    endYear: "2009",
-    role: "B.A. Animation",
-    Icon: Palette,
-  },
-];
+type WorkItemState = "active" | "near" | "far";
 
 function WorkItem({
   exp,
-  containerRef,
+  state,
 }: {
-  exp: Experience;
-  containerRef: React.RefObject<HTMLDivElement | null>;
+  exp: ExperienceItem;
+  state: WorkItemState;
 }) {
-  const itemRef = useRef<HTMLDivElement>(null);
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    if (!itemRef.current || !containerRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          // Active when fully visible (>=95%) in the small scroll container
-          setIsActive(entry.intersectionRatio >= 0.95);
-        }
-      },
-      {
-        root: containerRef.current,
-        threshold: [0, 0.5, 0.95, 1],
-      }
-    );
-
-    observer.observe(itemRef.current);
-    return () => observer.disconnect();
-  }, [containerRef]);
-
-  const { Icon } = exp;
+  const Icon = iconMap[exp.icon];
 
   return (
     <div
-      ref={itemRef}
-      className="flex gap-4 pb-4 snap-start work-item transition-[filter,opacity] duration-200"
-      style={{
-        filter: isActive ? "blur(0px)" : "blur(2px)",
-        opacity: isActive ? 1 : 0.3,
-      }}
+      data-experience-item
+      className={cn(
+        "flex gap-4 pb-4 snap-start work-item transition-[filter,opacity,transform] duration-200",
+        state === "active" && "translate-x-0 opacity-100 blur-0",
+        state === "near" && "translate-x-0 opacity-55 blur-[1px]",
+        state === "far" && "translate-x-0 opacity-25 blur-[2.5px]"
+      )}
     >
       <div className="relative flex items-center justify-center flex-none w-10 h-10 mt-1 rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 bg-white dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
         <Icon className="w-5 h-5 stroke-zinc-700 dark:stroke-zinc-300" strokeWidth={1.5} />
@@ -110,22 +64,81 @@ function WorkItem({
 
 export function ExperienceCard() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    let frameId = 0;
+
+    const updateActiveIndex = () => {
+      const items = Array.from(
+        container.querySelectorAll<HTMLElement>("[data-experience-item]")
+      );
+
+      if (!items.length) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.top + containerRect.height / 2;
+
+      let nextIndex = 0;
+      let minDistance = Number.POSITIVE_INFINITY;
+
+      items.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        const itemCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(itemCenter - containerCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          nextIndex = index;
+        }
+      });
+
+      setActiveIndex((current) => (current === nextIndex ? current : nextIndex));
+    };
+
+    const scheduleUpdate = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(updateActiveIndex);
+    };
+
+    const resizeObserver = new ResizeObserver(scheduleUpdate);
+    resizeObserver.observe(container);
+
+    container.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    scheduleUpdate();
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+      container.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, []);
 
   return (
     <div className="group flex flex-col items-start rounded-2xl box-gen p-4 shadow hover:shadow-lg transition-shadow duration-200 overflow-hidden relative col-span-6 gap-2 h-80 sm:col-span-3 lg:col-span-3">
-      <div className="inline-flex items-center h-8 gap-1 px-4 text-sm leading-5 body-primary box-gen rounded-full ring-1 ring-zinc-200 dark:ring-zinc-800">
-        <Briefcase className="flex-none w-4 h-4" />
-        <span>Experience</span>
-      </div>
+      <SectionPill icon={<Briefcase className="h-4 w-4" />}>Experience</SectionPill>
 
       <div
         ref={scrollRef}
-        className="relative overflow-y-auto w-full snap-y snap-proximity h-[160px] [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
+        className="relative overflow-y-auto w-full snap-y snap-proximity h-[148px] [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
       >
         <div className="flex flex-col gap-4 w-full">
-          {experiences.map((exp) => (
-            <WorkItem key={exp.org} exp={exp} containerRef={scrollRef} />
-          ))}
+          {experienceItems.map((exp, index) => {
+            const distanceFromActive = Math.abs(index - activeIndex);
+            const state =
+              distanceFromActive === 0
+                ? "active"
+                : distanceFromActive === 1
+                  ? "near"
+                  : "far";
+
+            return <WorkItem key={exp.org} exp={exp} state={state} />;
+          })}
         </div>
       </div>
 
@@ -134,14 +147,14 @@ export function ExperienceCard() {
           href="https://github.com/TiM1113"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-1 box-gen outline-0 ring-1 ring-zinc-200 dark:ring-[#1a1a1a] h-[34px] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md text-sm transition"
+          className="flex-1 inline-flex items-center justify-center gap-1 box-gen outline-0 ring-1 ring-zinc-200 dark:ring-zinc-800 h-[34px] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
         >
-          <ScrollText className="w-4 h-4 stroke-zinc-600 dark:stroke-zinc-400" />
+          <GithubIcon className="w-4 h-4 stroke-zinc-600 dark:stroke-zinc-400" />
           GitHub
         </a>
         <a
-          href="/cv/Tim-Yuan-CV.pdf"
-          className="flex-1 inline-flex items-center justify-center gap-1 box-gen outline-0 ring-1 ring-zinc-200 dark:ring-[#1a1a1a] h-[34px] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md text-sm transition"
+          href={siteConfig.resumePath}
+          className="flex-1 inline-flex items-center justify-center gap-1 box-gen outline-0 ring-1 ring-zinc-200 dark:ring-zinc-800 h-[34px] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
         >
           <Download className="w-4 h-4 transition stroke-zinc-600 dark:stroke-zinc-400" />
           Download CV

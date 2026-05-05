@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { spotifyTrack } from "@/data/site-content";
 
 export function SpotifyCard() {
   return (
@@ -11,35 +12,35 @@ export function SpotifyCard() {
         <div className="absolute inset-0 z-20 m-auto w-1 h-1 bg-white rounded-full dark:bg-neutral-900" />
         {/* Spinning album art */}
         <Image
-          src="/images/spotify/album-art.jpg"
-          alt="Sky Becomes Water"
+          src={spotifyTrack.albumArt}
+          alt={`${spotifyTrack.title} album art`}
           width={64}
           height={64}
-          className="absolute inset-0 z-10 m-auto w-8 h-8 object-cover rounded-full aspect-square animate-[spin_3s_linear_infinite]"
+          className="absolute inset-0 z-10 m-auto w-8 h-8 object-cover rounded-full aspect-square animate-[spin_8s_linear_infinite] motion-reduce:animate-none"
         />
       </div>
 
       {/* Track info */}
       <div className="flex flex-col min-w-0 flex-1">
         <a
-          href="https://open.spotify.com/track/7e4qdUt1TBfovilB8GtEIM"
+          href={spotifyTrack.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-medium text-zinc-900 dark:text-white truncate hover:underline"
+          className="text-sm font-medium text-zinc-900 dark:text-white truncate hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
         >
-          Sky Becomes Water
+          {spotifyTrack.title}
         </a>
         <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
-          Ryan Amon, City of the Fallen
+          {spotifyTrack.artist}
         </p>
       </div>
 
       {/* Spotify link icon */}
       <a
-        href="https://open.spotify.com/track/7e4qdUt1TBfovilB8GtEIM"
+        href={spotifyTrack.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-none box-gen ring-1 ring-zinc-200 dark:ring-zinc-800 rounded-md p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+        className="flex-none box-gen ring-1 ring-zinc-200 dark:ring-zinc-800 rounded-md p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
         aria-label="Open in Spotify"
       >
         <svg

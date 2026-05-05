@@ -2,7 +2,7 @@
 
 import { Layers } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { SectionPill } from "@/components/ui/section-pill";
 
 function TailwindIcon({ className }: { className?: string }) {
   return (
@@ -39,24 +39,33 @@ function TypeScriptIcon({ className }: { className?: string }) {
   );
 }
 
-function FigmaIcon({ className }: { className?: string }) {
+function HonoIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none">
-      <path d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z" fill="#0ACF83" />
-      <path d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z" fill="#A259FF" />
-      <path d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z" fill="#F24E1E" />
-      <path d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z" fill="#FF7262" />
-      <path d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z" fill="#1ABCFE" />
+      <path
+        d="M13.68 1.5c.58 2.76-.52 4.6-1.7 6.04-1.3 1.58-2.66 2.98-2.66 5.1 0 1.9 1.26 3.46 3.14 3.46 2.24 0 3.9-1.84 3.9-4.38 0-1.58-.62-2.96-1.72-4.34-.48-.58-.96-1.1-1.84-1.88.2 1.04-.2 1.94-.76 2.62-.62.76-1.4 1.34-1.4 2.44 0 .86.56 1.48 1.42 1.48 1.04 0 1.82-.82 1.82-2.02 0-.6-.24-1.14-.64-1.72 1.88 1.2 3.7 3.26 3.7 6.28 0 3.86-2.82 6.96-6.66 6.96C8.4 21.54 6 19.16 6 15.78c0-3.22 1.9-5.3 3.62-7.18 1.52-1.66 2.84-3.12 4.06-7.1Z"
+        fill="#F97316"
+      />
+      <path
+        d="M13.32 9.08c.9.9 1.42 1.94 1.42 3.08 0 1.72-1.2 2.98-2.88 2.98-1.44 0-2.5-1.08-2.5-2.58 0-1.54.96-2.54 1.84-3.5.54-.56 1.04-1.1 1.38-1.86.08.64.3 1.28.74 1.88Z"
+        fill="#FDBA74"
+      />
     </svg>
   );
 }
 
-function VSCodeIcon({ className }: { className?: string }) {
+function PostgreSQLIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none">
+      <ellipse cx="12" cy="5.25" rx="6.5" ry="2.5" fill="#336791" />
       <path
-        d="M17.583 2.29L9.831 9.17 5.186 5.56l-1.77.886v11.108l1.77.886 4.645-3.61 7.752 6.88L22 19.556V4.444L17.583 2.29zM5.186 14.269V9.731l3.06 2.269-3.06 2.269zm12.397 2.174l-5.814-4.443 5.814-4.443v8.886z"
-        fill="#007ACC"
+        d="M5.5 5.25v8.9c0 1.38 2.9 2.52 6.5 2.52s6.5-1.14 6.5-2.52v-8.9c0 1.38-2.9 2.5-6.5 2.5s-6.5-1.12-6.5-2.5Z"
+        fill="#336791"
+      />
+      <ellipse cx="12" cy="14.15" rx="6.5" ry="2.52" fill="#4B87B9" />
+      <path
+        d="M8.15 10.58c0-.48.38-.86.86-.86h6c.48 0 .87.38.87.86 0 .48-.39.86-.87.86h-6a.86.86 0 0 1-.86-.86Zm0 3.1c0-.48.38-.86.86-.86h6c.48 0 .87.38.87.86 0 .48-.39.86-.87.86h-6a.86.86 0 0 1-.86-.86Z"
+        fill="#E6F1FB"
       />
     </svg>
   );
@@ -75,8 +84,8 @@ const stackIcons = [
   { name: "Next.js", icon: NextjsIcon },
   { name: "React", icon: ReactIcon },
   { name: "TypeScript", icon: TypeScriptIcon },
-  { name: "Figma", icon: FigmaIcon },
-  { name: "VS Code", icon: VSCodeIcon },
+  { name: "Hono", icon: HonoIcon },
+  { name: "PostgreSQL", icon: PostgreSQLIcon },
   { name: "Vercel", icon: VercelIcon },
 ];
 
@@ -86,10 +95,17 @@ interface MeteorConfig {
   duration: number;
 }
 
+const meteors: readonly MeteorConfig[] = [
+  { left: -220, delay: 0.6, duration: 4.8 },
+  { left: -40, delay: 1.8, duration: 5.6 },
+  { left: 160, delay: 0.9, duration: 5.1 },
+  { left: 280, delay: 2.7, duration: 6.2 },
+] as const;
+
 function Meteor({ config }: { config: MeteorConfig }) {
   return (
     <span
-      className="animate-meteor-effect absolute top-0 h-0.5 w-0.5 rounded-full bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
+      className="animate-meteor-effect motion-reduce:animate-none absolute top-0 h-0.5 w-0.5 rounded-full bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
       style={{
         left: `${config.left}px`,
         animationDelay: `${config.delay}s`,
@@ -100,18 +116,6 @@ function Meteor({ config }: { config: MeteorConfig }) {
 }
 
 export function StackCard() {
-  const [meteors, setMeteors] = useState<MeteorConfig[]>([]);
-
-  useEffect(() => {
-    // Generate meteor configs on client only to avoid SSR hydration mismatch
-    const configs = Array.from({ length: 8 }).map(() => ({
-      left: Math.floor(Math.random() * 600) - 300,
-      delay: Math.random() * 0.8 + 0.2,
-      duration: Math.floor(Math.random() * 3) + 2,
-    }));
-    setMeteors(configs);
-  }, []);
-
   return (
     <div className="group flex flex-col items-start rounded-2xl box-gen p-4 shadow hover:shadow-lg transition-shadow duration-200 relative col-span-6 sm:col-span-3 md:col-span-3 lg:col-span-2 overflow-hidden">
       {/* SVG grid background */}
@@ -135,11 +139,12 @@ export function StackCard() {
         <Meteor key={i} config={config} />
       ))}
 
-      {/* Section label pill */}
-      <div className="inline-flex items-center h-8 gap-1 px-4 text-sm leading-5 body-primary box-gen rounded-full ring-1 ring-zinc-200 dark:ring-zinc-800 relative z-10">
-        <Layers className="flex-none w-4 h-4" />
-        <span>Stack</span>
-      </div>
+      <SectionPill
+        icon={<Layers className="h-4 w-4" />}
+        className="relative z-10"
+      >
+        Stack
+      </SectionPill>
 
       {/* Tech stack grid */}
       <div className="grid grid-cols-4 gap-2 mt-3 w-full flex-1 relative z-10">
@@ -147,7 +152,8 @@ export function StackCard() {
           <Link
             key={item.name}
             href="/stack"
-            className="flex items-center justify-center p-3 rounded-lg bg-white/60 dark:bg-zinc-800/60 hover:bg-neutral-100 dark:hover:bg-neutral-700 ring-1 ring-zinc-200 dark:ring-zinc-700 transition aspect-square"
+            aria-label={`Read about ${item.name} in the stack page`}
+            className="flex items-center justify-center p-3 rounded-lg bg-white/60 dark:bg-zinc-800/60 hover:bg-neutral-100 dark:hover:bg-neutral-700 ring-1 ring-zinc-200 dark:ring-zinc-700 transition aspect-square focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
           >
             <item.icon className="w-6 h-6" />
           </Link>

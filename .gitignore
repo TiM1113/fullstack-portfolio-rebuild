@@ -56,3 +56,8 @@ temp/
 
 # Codex review stamp
 .codex-review-stamp
+
+# Local agent artifacts and validation output
+.agents/
+output/
+test-results/

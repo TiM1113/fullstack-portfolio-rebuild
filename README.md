@@ -1,71 +1,107 @@
-# Tim Yuan — Personal Portfolio
+# Tim Yuan - Personal Portfolio
 
-Personal portfolio site for **Tian (Tim) Yuan** — Software Engineer, Full-Stack Developer, AI-Native Engineer based in Adelaide, Australia.
+Portfolio site for **Tian (Tim) Yuan** — software engineer, full-stack developer, and AI-native engineer based in Adelaide, Australia.
 
-> **Live:** _coming soon (Vercel)_
-> **Source:** [github.com/TiM1113/fullstack-portfolio-rebuild](https://github.com/TiM1113/fullstack-portfolio-rebuild)
+Source repository: [github.com/TiM1113/fullstack-portfolio-rebuild](https://github.com/TiM1113/fullstack-portfolio-rebuild)
 
-## About
+## What is in the site
 
-Engineer who learns by shipping. Master of IT graduate (Flinders University, 2025) with a background that bridges design (15+ years) and modern full-stack engineering. Comfortable pairing with AI agents as independent verifiers, not auto-completers. Full Australian work rights, no sponsorship required.
+- `/` — hero plus a motion-heavy bento grid for current writing, experience, projects, contact, and stack
+- `/about` — background, engineering principles, and working style
+- `/blog` — searchable article index
+- `/blog/[slug]` — individual long-form notes
+- `/projects` — featured project index
+- `/projects/[slug]` — project case studies
+- `/stack` — categorized toolchain and platform notes
 
-- **Adelaide, SA · Australia**
-- **+61 412 733 130** · yuantian1113@gmail.com
-- GitHub: [TiM1113](https://github.com/TiM1113) (personal) · [yuan0173](https://github.com/yuan0173) (school)
+## Tech stack
 
-## Featured Projects
+- Next.js 16 App Router
+- React 19
+- TypeScript strict mode
+- Tailwind CSS v4
+- Motion for dock magnification and card tilt
+- shadcn/ui primitives where appropriate
 
-| Project | Stack | Repo |
-|---|---|---|
-| **Food Delivery Platform** — production serverless food-delivery, rebuilt through 6 phases | Next.js 16 · Hono · PostgreSQL/Drizzle · NextAuth v5 · Stripe · Vercel | [FoodDelivery-AWS-Vercell](https://github.com/TiM1113/FoodDelivery-AWS-Vercell) |
-| **llm-wiki** — multi-platform AI knowledge base skill (Karpathy methodology) with Louvain community detection | Bash installer · multi-platform skill spec · interactive HTML graph | [llm-wiki-skill](https://github.com/TiM1113/llm-wiki-skill) |
-| **tim-dev-rig** — version-controlled Claude Code harness as code | Claude Code · custom slash-command skills · pre-commit hooks | [tim-dev-rig](https://github.com/TiM1113/tim-dev-rig) |
-| **Farm Time Management System** — multi-role attendance & payroll PWA, Lead Dev / Scrum Master | React 18 · .NET 8 Web API · EF Core · SQLite | [comp9034FarmSystem](https://github.com/yuan0173/comp9034FarmSystem) |
+## Local development
 
-## Tech Stack of This Site
-
-- **Framework:** Next.js 16 (App Router, React 19, TypeScript strict, Turbopack)
-- **UI:** shadcn/ui + Radix primitives + Tailwind CSS v4 (oklch tokens)
-- **Animation:** Motion (Framer Motion v12) — dock magnification, 3D mouse-tilt parallax, scroll-driven blur via IntersectionObserver
-- **Icons:** Lucide React + extracted SVGs
-- **Deployment:** Vercel
-
-## Local Development
+Node baseline: `22.22.0`
 
 ```bash
+nvm use
 npm install
-npm run dev       # http://localhost:3000
-npm run build     # production build
-npm run check     # lint + typecheck + build
+npm run dev
 ```
 
-### Docker
+The dev server runs on [http://localhost:3000](http://localhost:3000) by default.
+
+`npm run dev` uses Webpack for a stable local workflow in this workspace layout. If you specifically want to investigate the current Turbopack workspace-root issue, use `npm run dev:turbopack`.
+
+## Quality commands
 
 ```bash
-docker compose up dev --build   # dev mode on port 3001
-docker compose up app --build   # production build
+npm run lint
+npm run typecheck
+npm run build
+npm run check
+npm run test:e2e
 ```
 
-## Project Structure
+`npm run test:e2e` starts its own local dev server on port `3100` through Playwright.
 
+## Screenshots and visual handoff
+
+```bash
+npm run capture:screenshots
 ```
+
+This captures the primary routes in:
+
+- `docs/redesign-handoff/desktop-light/`
+- `docs/redesign-handoff/desktop-dark/`
+- `docs/redesign-handoff/mobile-light/`
+- `docs/redesign-handoff/mobile-dark/`
+
+If your dev server is not on port `3000`, set `SCREENSHOT_BASE_URL` before running the script.
+
+## Deployment notes
+
+- Production metadata uses `NEXT_PUBLIC_SITE_URL` when available.
+- On Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is used as a fallback.
+- If neither environment variable exists, the site falls back to `https://fullstack-portfolio-rebuild.vercel.app`.
+
+## Docker
+
+```bash
+docker compose up dev --build
+docker compose up app --build
+```
+
+- `dev` serves the site in development mode on `${DEV_PORT:-3001}`
+- `app` builds the standalone production image and serves on `${PORT:-3000}`
+
+## Project structure
+
+```text
 src/
-  app/              # Next.js routes (/, /about, /blog, /projects, /stack)
-  components/       # React components — cards, hero, navigation
-    ui/             # shadcn/ui primitives
-  lib/utils.ts      # cn() utility
+  app/                Next.js routes
+  components/         UI building blocks and motion components
+  data/               Centralized content for routes and cards
+  lib/                Shared utilities and metadata helpers
 public/
-  images/           # Site assets
-  seo/              # Favicons, OG images
+  images/             Avatar, decorative assets, track art
+  cv/                 Downloadable resume
 docs/
-  research/         # Research notes from the design-cloning phase
-  design-references/ # Visual references and screenshots
+  research/           Reference notes from the reconstruction process
+  redesign-handoff/   Generated screenshots for design review
+scripts/
+  capture-screenshots.mjs
 ```
+
+## Content sources
+
+The portfolio copy is aligned with Tim Yuan's current resume and personal career status notes. When those sources change, update `src/data/site-content.ts` first so the rest of the site stays consistent.
 
 ## Acknowledgement
 
-The visual design of this site was reverse-engineered from [educalvolopez-com.vercel.app](https://educalvolopez-com.vercel.app/) by **Edu Calvo** as a learning exercise in advanced UI choreography (dock magnification, scroll-driven animation, glassmorphism). Original design credit belongs entirely to Edu Calvo. Content, copy, and underlying engineering are my own.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+The visual direction started as a reverse-engineering exercise based on [educalvolopez-com.vercel.app](https://educalvolopez-com.vercel.app/) by Edu Calvo. The portfolio content, engineering decisions, and final structure are Tim Yuan's own.

@@ -121,6 +121,12 @@
 }
 
 /* Shared card glassmorphism style used across bento cards and nav */
+.site-shell {
+  background-image: url("/images/gradient2.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
 .box-gen {
   background-color: oklch(1 0 0 / 70%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -136,7 +142,7 @@
 
 .box-gen:hover {
   box-shadow:
-    0 12px 32px oklch(0 0 0 / 12%),
+    0 8px 20px oklch(0 0 0 / 10%),
     0 0 0 1px oklch(0 0 0 / 6%);
 }
 
@@ -150,7 +156,7 @@
 
 .dark .box-gen:hover {
   box-shadow:
-    0 12px 32px oklch(0 0 0 / 50%),
+    0 8px 20px oklch(0 0 0 / 40%),
     inset 0 0 0 1px oklch(1 0 0 / 8%);
 }
 
@@ -159,18 +165,16 @@
   color: var(--foreground);
 }
 
-/* Social links group-hover effect (Tailwind v4 named groups don't compile) */
-.social-group:hover .social-link {
-  opacity: 0.2;
-  filter: blur(4px);
-  transition: opacity 200ms ease, filter 200ms ease;
+/* Social links use only local hover feedback on the active icon. */
+.social-link {
+  transition:
+    transform 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
 }
-.social-group .social-link {
-  transition: opacity 200ms ease, filter 200ms ease;
-}
-.social-group:hover .social-link:hover {
-  opacity: 1 !important;
-  filter: none !important;
+.social-item:hover .social-link,
+.social-item:focus-within .social-link {
+  transform: translateY(-1px);
 }
 
 /* Meteor shower animation for Stack card */
@@ -188,7 +192,7 @@
   }
 }
 .animate-meteor-effect {
-  animation: 5s linear 0s infinite normal none running meteor;
+  animation: 6.2s linear 0s infinite normal none running meteor;
 }
 .animate-meteor-effect::before {
   content: "";
@@ -203,13 +207,24 @@
 /* Social link arrow indicator */
 .social-item .social-arrow {
   opacity: 0;
-  transform: translateX(0);
+  transform: translateX(-2px);
   transition: opacity 200ms ease, transform 200ms ease;
   pointer-events: none;
 }
-.social-item:hover .social-arrow {
+.social-item:hover .social-arrow,
+.social-item:focus-within .social-arrow {
   opacity: 1;
-  transform: translateX(4px);
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box-gen,
+  .social-link,
+  .social-item .social-arrow,
+  .animate-meteor-effect {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
 }
 
 @layer base {
