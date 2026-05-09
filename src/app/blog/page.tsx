@@ -15,8 +15,10 @@ export default function BlogPage() {
   return (
     <PageShell>
       <PageIntro
-        title="Writing about AI pair programming, full-stack migrations, and lessons from production."
-        description="Long-form notes on AI workflow design, production rebuilds, testing rigor, and the habits that make modern full-stack delivery repeatable."
+        eyebrow="Field Notes"
+        title="Notes on AI workflow, rebuilds, and delivery quality."
+        description="Short writing on the systems, constraints, and review habits behind recent product work."
+        widthClassName="max-w-4xl"
       />
       <BlogIndex posts={blogPosts} />
     </PageShell>

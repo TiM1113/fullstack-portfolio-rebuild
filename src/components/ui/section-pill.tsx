@@ -13,7 +13,7 @@ export function SectionPill({
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-1 rounded-full box-gen px-4 py-1.5 text-sm leading-5 ring-1 ring-zinc-200 dark:ring-zinc-800",
+        "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-[color:var(--muted-foreground)] surface-utility",
         className
       )}
     >

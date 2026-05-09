@@ -1,20 +1,26 @@
 import { expect, test } from "playwright/test";
 
 const routes = [
-  { path: "/", heading: "Tim Yuan - Portfolio" },
+  {
+    path: "/",
+    heading: "I build AI-native, production-minded products for the web.",
+  },
   {
     path: "/about",
-    heading: "I'm Tim Yuan, an engineer who learns by shipping.",
+    heading:
+      "Hi, I'm Tim. I got into software by rebuilding real systems until the delivery process finally made sense.",
   },
   {
     path: "/blog",
-    heading:
-      "Writing about AI pair programming, full-stack migrations, and lessons from production.",
+    heading: "Notes on AI workflow, rebuilds, and delivery quality.",
   },
-  { path: "/projects", heading: "Selected projects I've shipped." },
+  {
+    path: "/projects",
+    heading: "Selected builds and case studies.",
+  },
   {
     path: "/stack",
-    heading: "The tools and stack I'm reaching for right now.",
+    heading: "Capabilities, not just a tool list.",
   },
 ] as const;
 
@@ -40,7 +46,7 @@ for (const route of routes) {
 test("latest blog card opens the article detail page", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
   await page
-    .getByRole("link", { name: "Why I treat AI tooling as infrastructure" })
+    .getByRole("link", { name: "AI tooling as infrastructure" })
     .click();
 
   await expect(page).toHaveURL(/\/blog\/ai-tooling-as-infrastructure$/);

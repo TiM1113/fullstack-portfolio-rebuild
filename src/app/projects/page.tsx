@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { PageIntro, PageShell } from "@/components/page-shell";
-import { projects } from "@/data/site-content";
+import { ProjectCoverArt } from "@/components/project-cover-art";
+import { featuredProject, featuredProjects } from "@/data/site-content";
 import { buildPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -16,30 +17,88 @@ export default function ProjectsPage() {
   return (
     <PageShell>
       <PageIntro
-        title="Selected projects I've shipped."
-        description="From a six-phase production food-delivery rebuild to AI workflow tooling, these are the projects where I work out what modern full-stack delivery actually looks like."
+        eyebrow="Projects"
+        title="Selected builds and case studies."
+        description="A compact view of the projects that shaped how I handle architecture, testing, observability, and delivery under real constraints."
+        widthClassName="max-w-4xl"
       />
 
-      <div className="sm:px-8 mt-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6">
-            Featured Projects
-          </h2>
-          <div className="flex flex-col gap-4">
-            {projects.map((project) => (
-              <article
-                key={project.slug}
-                className="rounded-2xl box-gen p-6 ring-1 ring-zinc-200 shadow transition hover:shadow-lg dark:ring-zinc-800"
-              >
+      <div className="page-frame page-section-tight">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:items-stretch">
+          <Link
+            href={`/projects/${featuredProject.slug}`}
+            className="surface-feature group rounded-[2rem] p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <ProjectCoverArt
+              project={featuredProject}
+              variant="hero"
+              className="transition duration-200 group-hover:-translate-y-1"
+            />
+              <div className="mt-5 flex items-start justify-between gap-4">
+                <div>
+                  <p className="page-kicker">Featured build</p>
+                  <h2 className="section-title mt-3">{featuredProject.title}</h2>
+                  <p className="section-copy mt-4 max-w-xl">{featuredProject.outcomes[0]}</p>
+                </div>
+                <span className="hidden font-mono text-[0.72rem] uppercase tracking-[0.2em] text-[color:var(--muted-foreground)] sm:block">
+                  Open
+              </span>
+            </div>
+          </Link>
+
+          <aside className="surface-panel rounded-[2rem] p-6 sm:p-8">
+            <p className="page-kicker">Why it matters</p>
+            <h2 className="section-title mt-4">A production rebuild with real operating pressure.</h2>
+            <p className="section-copy">
+              This is where modern full-stack ideas had to survive real payments, access control, tests, and runtime visibility.
+            </p>
+            <ul className="mt-8 space-y-4">
+              {featuredProject.outcomes.slice(0, 3).map((outcome) => (
+                <li key={outcome} className="flex gap-3 text-sm leading-6 text-[color:var(--foreground)]">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--accent-strong)]" />
+                  <span>{outcome}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href={`/projects/${featuredProject.slug}`} className="button-primary ring-ring/60">
+                Read case study
+              </Link>
+              {featuredProject.liveUrl ? (
+                <a
+                  href={featuredProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button-secondary ring-ring/60"
+                >
+                  Open live demo
+                </a>
+              ) : null}
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div className="page-frame page-section">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="page-kicker">Selected Index</p>
+            <h2 className="section-title mt-4">Additional projects and tooling.</h2>
+          </div>
+        </div>
+
+        <div className="mt-8 grid auto-rows-fr gap-5 xl:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <article key={project.slug} className="surface-panel flex h-full flex-col rounded-[1.75rem] p-4 sm:p-5">
+              <ProjectCoverArt project={project} variant="card" />
+              <div className="mt-5 flex flex-1 flex-col">
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
-                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                      {project.period}
-                    </p>
-                    <h3 className="mt-2 text-base font-semibold text-zinc-900 dark:text-white">
+                    <p className="section-label">{project.period}</p>
+                    <h3 className="mt-3 max-w-[15ch] text-xl font-semibold tracking-[-0.04em]">
                       <Link
                         href={`/projects/${project.slug}`}
-                        className="transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
+                        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
                         {project.title}
                       </Link>
@@ -49,44 +108,51 @@ export default function ProjectsPage() {
                     href={project.repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-none rounded-full p-2 text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 dark:focus-visible:ring-zinc-500"
+                    className="surface-utility flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label={`Open ${project.title} repository`}
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="h-4 w-4" />
                   </a>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  {project.summary}
+                <p className="mt-4 max-w-[34ch] text-sm leading-6 text-[color:var(--muted-foreground)]">
+                  {project.outcomes[0]}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {project.stack.map((item) => (
+                  {project.stack.slice(0, 3).map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900/55 dark:text-zinc-300"
+                      className="rounded-full border border-white/45 bg-white/56 px-3 py-1.5 text-[0.72rem] font-medium text-[color:var(--muted-foreground)] dark:border-white/8 dark:bg-white/[0.04]"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 dark:focus-visible:ring-zinc-500"
-                  >
+                <div className="mt-auto flex flex-wrap gap-3 pt-5">
+                  <Link href={`/projects/${project.slug}`} className="button-primary ring-ring/60">
                     Read case study
                   </Link>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="button-secondary ring-ring/60"
+                    >
+                      Live demo
+                    </a>
+                  ) : null}
                   <a
                     href={project.repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl box-gen px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:focus-visible:ring-zinc-500"
+                    className="button-secondary ring-ring/60"
                   >
                     View repo
                   </a>
                 </div>
-              </article>
-            ))}
-          </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </PageShell>

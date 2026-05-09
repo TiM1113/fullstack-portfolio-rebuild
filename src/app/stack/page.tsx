@@ -3,6 +3,17 @@ import { PageIntro, PageShell } from "@/components/page-shell";
 import { stackCategories } from "@/data/site-content";
 import { buildPageMetadata } from "@/lib/site";
 
+const stackSummaries: Record<string, string> = {
+  Frontend: "Interface work that stays maintainable under product change.",
+  "Backend and Data": "Typed services and data flows built for clarity and operational trust.",
+  "Auth, Payments, Quality": "Risk-heavy systems where correctness matters more than speed theatre.",
+  "AI Toolchain": "Agents, rules, and support files treated like reusable infrastructure.",
+  "Infra and DevOps": "Deployment, CI, and supporting services that keep delivery predictable.",
+};
+
+const primaryStackCategories = stackCategories.slice(0, 3);
+const secondaryStackCategories = stackCategories.slice(3);
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Stack",
   description:
@@ -14,31 +25,65 @@ export default function StackPage() {
   return (
     <PageShell>
       <PageIntro
-        title="The tools and stack I'm reaching for right now."
-        description="Libraries, services, and AI tools that earned a place in my workflow by surviving real shipping cycles."
+        eyebrow="Stack"
+        title="Capabilities, not just a tool list."
+        description="The frameworks and systems that stayed because they survived real delivery work."
+        widthClassName="max-w-4xl"
       />
 
-      <div className="sm:px-8 mt-16">
-        <div className="mx-auto max-w-2xl">
-          {stackCategories.map((category) => (
-            <section key={category.title} className="mb-16">
-              <h2 className="border-b border-zinc-200 pb-4 text-lg font-semibold text-zinc-900 dark:border-zinc-700 dark:text-white">
-                {category.title}
-              </h2>
-              <div className="mt-6 flex flex-col gap-8">
-                {category.items.map((item) => (
-                  <div key={item.name}>
-                    <h3 className="text-sm font-medium text-zinc-900 dark:text-white">
-                      {item.name}
-                    </h3>
-                    <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                      {item.description}
-                    </p>
+      <div className="page-frame page-section-tight">
+        <div className="mx-auto max-w-5xl">
+          <div className="space-y-4">
+            <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {primaryStackCategories.map((category) => (
+                <section key={category.title} className="surface-panel flex min-h-[14rem] flex-col rounded-[1.75rem] p-6 sm:p-7">
+                  <p className="page-kicker">{category.title}</p>
+                  <p className="mt-4 max-w-[34ch] text-sm leading-6 text-[color:var(--muted-foreground)]">
+                    {stackSummaries[category.title]}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {category.items.map((item) => (
+                      <span
+                        key={item.name}
+                        className="metric-chip px-3 py-1.5 text-[0.74rem] text-[color:var(--muted-foreground)]"
+                      >
+                        {item.name}
+                      </span>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </section>
-          ))}
+                </section>
+              ))}
+            </div>
+
+            <div className="grid auto-rows-fr gap-4 md:grid-cols-2">
+              {secondaryStackCategories.map((category) => (
+                <section key={category.title} className="surface-panel flex min-h-[14rem] flex-col rounded-[1.75rem] p-6 sm:p-7">
+                  <p className="page-kicker">{category.title}</p>
+                  <p className="mt-4 max-w-[34ch] text-sm leading-6 text-[color:var(--muted-foreground)]">
+                    {stackSummaries[category.title]}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {category.items.map((item) => (
+                      <span
+                        key={item.name}
+                        className="metric-chip px-3 py-1.5 text-[0.74rem] text-[color:var(--muted-foreground)]"
+                      >
+                        {item.name}
+                      </span>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
+
+          <div className="surface-feature mt-8 rounded-[2rem] p-6 sm:p-8">
+            <p className="page-kicker">Principle</p>
+            <h2 className="section-title mt-4">I do not collect tools. I keep systems that keep working.</h2>
+            <p className="section-copy max-w-3xl">
+              The common thread is tighter feedback loops, clearer contracts, easier maintenance, and better confidence under change.
+            </p>
+          </div>
         </div>
       </div>
     </PageShell>

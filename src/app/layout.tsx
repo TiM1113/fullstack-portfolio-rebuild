@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BottomNav } from "@/components/bottom-nav";
 import { MobileNav } from "@/components/mobile-nav";
+import { PointerHalo } from "@/components/pointer-halo";
 import { metadataBase } from "@/lib/site";
 import { siteConfig } from "@/data/site-content";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const bodyFont = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+});
+
+const displayFont = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+const monoFont = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 const themeInitializer = `(() => {
@@ -60,16 +72,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <body className="site-shell min-h-full flex flex-col">
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitializer}
         </Script>
         <ThemeProvider>
-          <MobileNav />
-          <div className="h-20 md:hidden" aria-hidden="true" />
-          {children}
-          <BottomNav />
+          <PointerHalo />
+          <div className="site-stage">
+            <MobileNav />
+            <div className="h-20 md:hidden" aria-hidden="true" />
+            {children}
+            <BottomNav />
+          </div>
         </ThemeProvider>
       </body>
     </html>

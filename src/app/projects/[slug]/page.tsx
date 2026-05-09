@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { PageShell, PageIntro } from "@/components/page-shell";
+import { ProjectCoverArt } from "@/components/project-cover-art";
+import { ProjectScreenshotGallery } from "@/components/project-screenshot-gallery";
 import { projects, siteConfig } from "@/data/site-content";
 import { buildPageMetadata } from "@/lib/site";
 
@@ -66,11 +68,11 @@ export default async function ProjectDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
 
-      <div className="sm:px-8 mt-10 sm:mt-16">
-        <div className="mx-auto max-w-4xl">
+      <div className="page-frame mt-10 sm:mt-16">
+        <div className="mx-auto max-w-5xl">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-zinc-600 transition hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:text-zinc-400 dark:hover:text-white dark:focus-visible:ring-zinc-500"
+            className="inline-flex items-center gap-2 text-sm text-[color:var(--muted-foreground)] transition hover:text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to projects
@@ -79,89 +81,160 @@ export default async function ProjectDetailPage({
       </div>
 
       <PageIntro
+        eyebrow={project.period}
         title={project.title}
         description={project.summary}
         className="mt-8 sm:mt-12"
-        widthClassName="max-w-4xl"
+        widthClassName="max-w-5xl"
       />
 
-      <div className="sm:px-8 mt-8">
-        <div className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-[1.8fr_1fr]">
-          <article className="rounded-[2rem] box-gen p-6 shadow ring-1 ring-zinc-200 sm:p-8 dark:ring-zinc-800">
-            <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-              {project.period}
-            </p>
-            <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-              {project.intro}
-            </p>
+	      <div className="page-frame mt-8">
+	        <div className="mx-auto max-w-5xl space-y-6">
+	          {project.screenshots?.length ? (
+	            <ProjectScreenshotGallery project={project} />
+	          ) : (
+	            <ProjectCoverArt project={project} variant="hero" />
+	          )}
 
-            <section className="mt-8">
-              <h2 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-                Outcomes
-              </h2>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {project.outcomes.map((outcome) => (
-                  <li key={outcome} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-lime-500" />
-                    <span>{outcome}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+	          <div className="grid gap-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(0,0.9fr)]">
+	            <article className="surface-panel rounded-[2rem] p-6 sm:p-8">
+	              <p className="text-base leading-7 text-[color:var(--muted-foreground)]">
+	                {project.intro}
+	              </p>
 
-            <section className="mt-8">
-              <h2 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-                Highlights
-              </h2>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sky-500" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </article>
+	              <div className="mt-10 grid gap-10 xl:grid-cols-2">
+	                <section>
+	                  <p className="page-kicker">Outcomes</p>
+	                  <ul className="mt-5 space-y-4 text-sm leading-6 text-[color:var(--foreground)]">
+	                    {project.outcomes.map((outcome) => (
+	                      <li key={outcome} className="flex gap-3">
+	                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--accent-strong)]" />
+	                        <span>{outcome}</span>
+	                      </li>
+	                    ))}
+	                  </ul>
+	                </section>
 
-          <aside className="space-y-4">
-            <div className="rounded-[2rem] box-gen p-6 shadow ring-1 ring-zinc-200 dark:ring-zinc-800">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                Role
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {project.role}
-              </p>
-            </div>
+	                <section>
+	                  <p className="page-kicker">Highlights</p>
+	                  <ul className="mt-5 space-y-4 text-sm leading-6 text-[color:var(--foreground)]">
+	                    {project.highlights.map((highlight) => (
+	                      <li key={highlight} className="flex gap-3">
+	                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-sky-500" />
+	                        <span>{highlight}</span>
+	                      </li>
+	                    ))}
+	                  </ul>
+	                </section>
+	              </div>
+	            </article>
 
-            <div className="rounded-[2rem] box-gen p-6 shadow ring-1 ring-zinc-200 dark:ring-zinc-800">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                Stack
-              </h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900/55 dark:text-zinc-300"
-                  >
-                    {item}
-                  </span>
-                ))}
+	            <aside className="space-y-4">
+	              {project.liveUrl ? (
+	                <div className="surface-feature rounded-[1.75rem] p-6">
+	                  <p className="section-label">Live build</p>
+	                  <p className="mt-4 text-sm leading-6 text-[color:var(--muted-foreground)]">
+	                    Open the deployed product directly, or expand the inline preview below without leaving the portfolio.
+	                  </p>
+	                  <div className="mt-5 flex flex-wrap gap-3">
+	                    <a
+	                      href={project.liveUrl}
+	                      target="_blank"
+	                      rel="noopener noreferrer"
+	                      className="button-primary ring-ring/60"
+	                    >
+	                      Open live demo
+	                    </a>
+	                    <a
+	                      href={project.repoUrl}
+	                      target="_blank"
+	                      rel="noopener noreferrer"
+	                      className="button-secondary ring-ring/60"
+	                    >
+	                      View repository
+	                    </a>
+	                  </div>
+	                </div>
+	              ) : null}
+
+	              <div className="surface-panel rounded-[1.75rem] p-6">
+	                <p className="section-label">Role</p>
+	                <p className="mt-4 text-sm leading-6 text-[color:var(--muted-foreground)]">
+	                  {project.role}
+                </p>
               </div>
-            </div>
 
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-zinc-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 dark:focus-visible:ring-zinc-500"
-            >
-              View repository
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          </aside>
-        </div>
-      </div>
-    </PageShell>
-  );
+	              {project.proofMetrics?.length ? (
+	                <div className="surface-panel rounded-[1.75rem] p-6">
+	                  <p className="section-label">Key numbers</p>
+	                  <div className="mt-4 grid gap-3">
+	                    {project.proofMetrics.map((metric) => (
+                      <div key={metric.label} className="rounded-[1.25rem] bg-[color:var(--surface-inset)] px-4 py-4">
+                        <p className="text-2xl font-semibold tracking-[-0.04em]">{metric.value}</p>
+                        <p className="mt-1 text-sm leading-6 text-[color:var(--muted-foreground)]">
+                          {metric.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+	              <div className="surface-panel rounded-[1.75rem] p-6">
+	                <p className="section-label">Stack</p>
+	                <div className="mt-4 flex flex-wrap gap-2">
+	                  {project.stack.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/45 bg-white/56 px-3 py-1.5 text-[0.72rem] font-medium text-[color:var(--muted-foreground)] dark:border-white/8 dark:bg-white/[0.04]"
+                    >
+                      {item}
+                    </span>
+	                  ))}
+	                </div>
+	              </div>
+
+	              {!project.liveUrl ? (
+	                <a
+	                  href={project.repoUrl}
+	                  target="_blank"
+	                  rel="noopener noreferrer"
+	                  className="button-primary flex w-full items-center justify-center ring-ring/60"
+	                >
+	                  View repository
+	                  <ExternalLink className="ml-2 h-4 w-4" />
+	                </a>
+	              ) : null}
+	            </aside>
+	          </div>
+
+	          {project.previewUrl ? (
+	            <details className="surface-panel rounded-[2rem] p-5 sm:p-6">
+	              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left [&::-webkit-details-marker]:hidden">
+	                <div>
+	                  <p className="page-kicker">Inline preview</p>
+	                  <h2 className="mt-3 text-xl font-semibold tracking-[-0.04em] sm:text-2xl">
+	                    Browse the deployed project without leaving this case study.
+	                  </h2>
+	                </div>
+	                <span className="button-secondary ring-ring/60">Preview inline</span>
+	              </summary>
+	              <p className="mt-4 max-w-3xl text-sm leading-6 text-[color:var(--muted-foreground)]">
+	                Use this for a quick walkthrough. If you want a full session with cleaner navigation and auth flow, open the live demo in a new tab.
+	              </p>
+	              <div className="mt-5 overflow-hidden rounded-[1.5rem] border border-[color:var(--surface-outline)] bg-white shadow-[0_16px_48px_rgba(15,23,42,0.14)]">
+	                <iframe
+	                  src={project.previewUrl}
+	                  title={`${project.title} live preview`}
+	                  loading="lazy"
+	                  referrerPolicy="strict-origin-when-cross-origin"
+	                  className="h-[42rem] w-full bg-white"
+	                />
+	              </div>
+	            </details>
+	          ) : null}
+	        </div>
+	      </div>
+	    </PageShell>
+	  );
 }

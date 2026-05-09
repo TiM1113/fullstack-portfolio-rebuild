@@ -9,32 +9,34 @@ export function PageShell({
   className?: string;
 }) {
   return (
-    <div className={cn("relative mb-16 sm:mb-32", className)}>
+    <div className={cn("page-shell", className)}>
       <main>{children}</main>
     </div>
   );
 }
 
 export function PageIntro({
+  eyebrow,
   title,
   description,
+  actions,
   className,
   widthClassName = "max-w-2xl",
 }: {
+  eyebrow?: string;
   title: string;
   description: string;
+  actions?: ReactNode;
   className?: string;
   widthClassName?: string;
 }) {
   return (
-    <div className={cn("sm:px-8 mt-16 sm:mt-32", className)}>
+    <div className={cn("page-frame page-section", className)}>
       <div className={cn("mx-auto", widthClassName)}>
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl leading-tight">
-          {title}
-        </h1>
-        <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400 leading-7">
-          {description}
-        </p>
+        {eyebrow ? <p className="page-kicker">{eyebrow}</p> : null}
+        <h1 className="page-title mt-4">{title}</h1>
+        <p className="page-copy mt-5 max-w-3xl">{description}</p>
+        {actions ? <div className="mt-8 flex flex-wrap gap-3">{actions}</div> : null}
       </div>
     </div>
   );

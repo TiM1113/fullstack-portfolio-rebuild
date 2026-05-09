@@ -60,9 +60,24 @@ export interface Project {
   intro: string;
   role: string;
   repoUrl: string;
+  liveUrl?: string;
+  previewUrl?: string;
   stack: string[];
   outcomes: string[];
   highlights: string[];
+  screenshots?: readonly ProjectScreenshot[];
+  coverImage?: string;
+  coverAlt?: string;
+  coverTheme?: "signal" | "field" | "graph" | "system";
+  proofMetrics?: readonly ProjectMetric[];
+}
+
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  label: string;
+  theme?: "light" | "dark";
+  detail?: string;
 }
 
 export interface StackEntry {
@@ -73,6 +88,49 @@ export interface StackEntry {
 export interface StackCategory {
   title: string;
   items: StackEntry[];
+}
+
+export interface ProjectMetric {
+  value: string;
+  label: string;
+}
+
+export interface HomeHero {
+  kicker: string;
+  title: string;
+  summary: string;
+  location: string;
+  availability: string;
+  tags: readonly string[];
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
+
+export interface HomeMethod {
+  title: string;
+  body: string;
+}
+
+export interface ContactStrip {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+}
+
+export interface ExperienceHighlight {
+  period: string;
+  title: string;
+  body: string;
 }
 
 export const siteConfig = {
@@ -285,6 +343,8 @@ export const projects: readonly Project[] = [
     role:
       "Full-stack architecture, payments, testing strategy, observability, deployment",
     repoUrl: "https://github.com/TiM1113/FoodDelivery-AWS-Vercell",
+    liveUrl: "https://food-delivery-web-eosin.vercel.app/",
+    previewUrl: "https://food-delivery-web-eosin.vercel.app/",
     stack: [
       "Next.js 16",
       "Hono",
@@ -296,13 +356,75 @@ export const projects: readonly Project[] = [
     ],
     outcomes: [
       "Structured the rebuild as six deliberate phases instead of one risky rewrite.",
+      "Migrated the product into a cleaner Next.js 16 + Hono + PostgreSQL architecture.",
       "Shipped 70 backend tests and 101 E2E tests to stabilize product changes.",
       "Added RBAC, KYC verification, payment flows, and production-grade monitoring.",
+      "Kept the deployed product usable while hardening the stack underneath it.",
     ],
     highlights: [
       "Cart and order flows designed for race-safe updates.",
       "Clear split between app shell, API layer, and typed shared contracts.",
+      "Role-aware auth and KYC checks applied consistently across sensitive flows.",
+      "Backend and user-facing behavior both covered by automated test layers.",
       "Sentry and Vercel observability added as first-class operating tools.",
+    ],
+    screenshots: [
+      {
+        src: "/images/projects/food-delivery/home.png",
+        alt: "Food Delivery landing page with the hero banner and first menu categories.",
+        label: "Landing page",
+        theme: "light",
+        detail:
+          "Live homepage in light mode, showing the hero, theme toggle, and the first menu entry point.",
+      },
+      {
+        src: "/images/projects/food-delivery/menu.png",
+        alt: "Food Delivery menu view with searchable product cards and category filtering.",
+        label: "Menu and product grid",
+        theme: "light",
+        detail:
+          "Browsing state after entering the menu, with category filters, search, and product cards visible.",
+      },
+      {
+        src: "/images/projects/food-delivery/login.png",
+        alt: "Food Delivery sign-in page for account-based ordering and protected routes.",
+        label: "Authentication flow",
+        theme: "light",
+        detail:
+          "Protected sign-in screen used before account, order history, and checkout-related routes.",
+      },
+      {
+        src: "/images/projects/food-delivery/home-dark.png",
+        alt: "Food Delivery landing page in dark mode with the hero banner and theme-aware navigation.",
+        label: "Landing page",
+        theme: "dark",
+        detail:
+          "The same homepage sequence in dark mode, showing that the live product supports both theme states.",
+      },
+      {
+        src: "/images/projects/food-delivery/menu-dark.png",
+        alt: "Food Delivery menu view in dark mode with filtering and product cards.",
+        label: "Menu and product grid",
+        theme: "dark",
+        detail:
+          "Dark mode browse state with the same category rail, search workflow, and product listing behavior.",
+      },
+      {
+        src: "/images/projects/food-delivery/login-dark.png",
+        alt: "Food Delivery sign-in page in dark mode for protected account routes.",
+        label: "Authentication flow",
+        theme: "dark",
+        detail:
+          "Dark mode auth screen for the same account access path, kept consistent with the light theme flow.",
+      },
+    ],
+    coverImage: "/images/projects/food-delivery/home.png",
+    coverAlt: "Deployed Food Delivery Platform homepage showing the menu hero, category rail, and ordering interface.",
+    coverTheme: "signal",
+    proofMetrics: [
+      { value: "6", label: "release phases" },
+      { value: "171", label: "automated tests" },
+      { value: "7", label: "production systems hardened" },
     ],
   },
   {
@@ -332,6 +454,13 @@ export const projects: readonly Project[] = [
       "Alias-based search to reduce missed hits across naming conventions.",
       "Cross-platform documentation and sync scripts kept in one source of truth.",
     ],
+    coverAlt: "Connected graph canvas representing a multi-platform AI knowledge map.",
+    coverTheme: "graph",
+    proofMetrics: [
+      { value: "4", label: "agent platforms supported" },
+      { value: "1", label: "installer for every target" },
+      { value: "∞", label: "knowledge graph expansion room" },
+    ],
   },
   {
     slug: "tim-dev-rig",
@@ -354,6 +483,13 @@ export const projects: readonly Project[] = [
       "Pre-commit and pre-push checks reinforce review discipline.",
       "Skill authoring and sync scripts support multi-platform reuse.",
       "Memory files keep long-running context from collapsing between sessions.",
+    ],
+    coverAlt: "Prompt, hook, and validation layers arranged like an engineering operating system.",
+    coverTheme: "system",
+    proofMetrics: [
+      { value: "1", label: "versioned AI development rig" },
+      { value: "4", label: "target agent environments" },
+      { value: "24/7", label: "repeatable repo memory" },
     ],
   },
   {
@@ -383,6 +519,13 @@ export const projects: readonly Project[] = [
       "Designed for unstable connectivity in practical field conditions.",
       "Handled role-sensitive workflows across managers and workers.",
       "Kept project delivery moving while coordinating sprint execution.",
+    ],
+    coverAlt: "Field operations dashboard balancing scheduling, payroll, and offline sync.",
+    coverTheme: "field",
+    proofMetrics: [
+      { value: "PWA", label: "offline-first workflow" },
+      { value: "RBAC", label: "multi-role access model" },
+      { value: "Lead", label: "dev and scrum ownership" },
     ],
   },
 ] as const;
@@ -524,6 +667,77 @@ export const contactCard = {
   secondaryHref: "/projects",
 } as const;
 
+export const homeHero: HomeHero = {
+  kicker: "Tian (Tim) Yuan · Software Engineer",
+  title: "I build AI-native, production-minded products for the web.",
+  summary:
+    "Currently based in Adelaide, I build full-stack products, tighten delivery workflows with AI, and focus on the parts that still need to survive after launch: architecture, evidence, operations, and trust.",
+  location: "Adelaide, South Australia",
+  availability: siteConfig.availability,
+  tags: [
+    "Full-stack delivery",
+    "AI tooling as infrastructure",
+    "Production rebuilds",
+  ],
+  primaryCta: {
+    label: "View case studies",
+    href: "/projects",
+  },
+  secondaryCta: {
+    label: "Read notes",
+    href: "/blog",
+  },
+};
+
+export const homeMetrics: readonly ProjectMetric[] = [
+  { value: "6", label: "rebuild phases shipped on the core platform" },
+  { value: "171", label: "tests now backing production changes" },
+  { value: "4", label: "agent environments supported in shipped tooling" },
+] as const;
+
+export const homeMethods: readonly HomeMethod[] = [
+  {
+    title: "Learn by shipping",
+    body: "New tools only stay in my stack after they survive a real migration, feature, or production bug.",
+  },
+  {
+    title: "AI as independent verifier",
+    body: "I separate drafting from validation so the same model is not trusted to grade its own homework.",
+  },
+  {
+    title: "Observation-first debugging",
+    body: "Logs, traces, payloads, and browser/runtime evidence come before implementation changes.",
+  },
+] as const;
+
+export const experienceHighlights: readonly ExperienceHighlight[] = [
+  {
+    period: "2024 — 2025",
+    title: "Master of Information Technology, Flinders University",
+    body: "Graduated while rebuilding a production platform and tightening my engineering practice around evidence, testing, and delivery loops.",
+  },
+  {
+    period: "2023 — 2024",
+    title: "Master of IT (Enterprise Management), UniSA",
+    body: "Balanced systems thinking, product delivery, and cross-functional execution while pivoting deeper into modern web engineering.",
+  },
+  {
+    period: "2009 — 2023",
+    title: "Designer and IT coordinator across Beijing and Shanghai studios",
+    body: "Built the communication habits, quality instincts, and visual judgment that now shape how I structure technical work.",
+  },
+] as const;
+
+export const contactStrip: ContactStrip = {
+  eyebrow: "Available",
+  heading: "Open to software engineering roles, contract builds, and AI workflow consulting.",
+  body: "If the work needs production judgment, full-stack delivery, and AI systems that remain accountable after launch, I am interested.",
+  primaryLabel: "Email Tim",
+  primaryHref: `mailto:${siteConfig.email}`,
+  secondaryLabel: "View GitHub",
+  secondaryHref: "https://github.com/TiM1113",
+} as const;
+
 export const spotifyTrack = {
   title: "Sky Becomes Water",
   artist: "Ryan Amon, City of the Fallen",
@@ -532,4 +746,6 @@ export const spotifyTrack = {
 } as const;
 
 export const latestBlogPost = blogPosts[0];
-export const featuredProjects = projects.slice(0, 3);
+export const featuredProject = projects[0];
+export const featuredProjects = projects.slice(1, 4);
+export const writingHighlights = blogPosts.slice(0, 2);

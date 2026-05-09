@@ -30,11 +30,11 @@ export function MobileNav() {
   return (
     <div className="md:hidden" aria-hidden={false}>
       <div className="fixed inset-x-4 top-4 z-30">
-        <div className="box-gen flex items-center justify-between rounded-2xl px-3 py-3 ring-1 ring-zinc-200 dark:ring-zinc-800">
+        <div className="surface-feature flex items-center justify-between rounded-[1.5rem] px-3 py-3">
           <Link
             href="/"
             onClick={() => setNavState({ isOpen: false, pathname })}
-            className="flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
+            className="flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Go to home page"
           >
             <Image
@@ -42,14 +42,14 @@ export function MobileNav() {
               alt="Tim Yuan avatar"
               width={40}
               height={40}
-              className="rounded-full border border-zinc-200 bg-zinc-100 p-0.5 dark:border-zinc-700 dark:bg-zinc-800"
+              className="rounded-full border border-white/55 bg-white/70 p-0.5"
               loading="eager"
             />
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-zinc-900 dark:text-white">
+              <p className="truncate text-sm font-medium text-[color:var(--foreground)]">
                 {siteConfig.name}
               </p>
-              <p className="truncate text-xs text-zinc-500 dark:text-zinc-400">
+              <p className="truncate text-xs text-[color:var(--muted-foreground)]">
                 {currentSection}
               </p>
             </div>
@@ -59,7 +59,7 @@ export function MobileNav() {
             <button
               type="button"
               onClick={toggleTheme}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-200/70 text-zinc-900 transition hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:bg-neutral-700/50 dark:text-zinc-100 dark:hover:bg-neutral-700 dark:focus-visible:ring-zinc-500"
+              className="surface-utility inline-flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             >
               {theme === "light" ? (
@@ -72,7 +72,7 @@ export function MobileNav() {
             <button
               type="button"
               onClick={() => setNavState({ isOpen: !isOpen, pathname })}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-200/70 text-zinc-900 transition hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:bg-neutral-700/50 dark:text-zinc-100 dark:hover:bg-neutral-700 dark:focus-visible:ring-zinc-500"
+              className="surface-utility inline-flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-controls="mobile-navigation-panel"
               aria-expanded={isOpen}
               aria-label={isOpen ? "Close navigation" : "Open navigation"}
@@ -86,7 +86,7 @@ export function MobileNav() {
       <AnimatePresence initial={false}>
         {isOpen ? (
           <motion.div
-            className="fixed inset-0 z-20 bg-zinc-950/15 px-4 pt-24 backdrop-blur-sm"
+            className="fixed inset-0 z-20 bg-black/12 px-4 pt-24 backdrop-blur-sm"
             initial={prefersReducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={prefersReducedMotion ? undefined : { opacity: 0 }}
@@ -94,7 +94,7 @@ export function MobileNav() {
             <motion.nav
               id="mobile-navigation-panel"
               aria-label="Site navigation"
-              className="box-gen mx-auto max-w-sm rounded-3xl p-4 ring-1 ring-zinc-200 dark:ring-zinc-800"
+              className="surface-panel mx-auto max-w-sm rounded-[1.75rem] p-4"
               initial={prefersReducedMotion ? false : { opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12 }}
@@ -109,7 +109,7 @@ export function MobileNav() {
                       : pathname.startsWith(item.href));
 
                   const sharedClassName =
-                    "flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500";
+                    "flex items-center justify-between rounded-[1.25rem] px-4 py-3 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
                   if (item.isExternal) {
                     return (
@@ -121,11 +121,11 @@ export function MobileNav() {
                         onClick={() => setNavState({ isOpen: false, pathname })}
                         className={cn(
                           sharedClassName,
-                          "text-zinc-800 hover:bg-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-800"
+                          "text-[color:var(--foreground)] hover:bg-white/45 dark:hover:bg-white/[0.04]"
                         )}
                       >
                         <span>{item.label}</span>
-                        <ExternalLink className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
+                        <ExternalLink className="h-4 w-4 text-[color:var(--muted-foreground)]" />
                       </a>
                     );
                   }
@@ -139,8 +139,8 @@ export function MobileNav() {
                       className={cn(
                         sharedClassName,
                         isActive
-                          ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
-                          : "text-zinc-800 hover:bg-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-800"
+                          ? "bg-[color:var(--foreground)] text-[color:var(--primary-foreground)]"
+                          : "text-[color:var(--foreground)] hover:bg-white/45 dark:hover:bg-white/[0.04]"
                       )}
                     >
                       <span>{item.label}</span>

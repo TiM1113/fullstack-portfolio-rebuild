@@ -28,77 +28,85 @@ export function BlogIndex({ posts }: { posts: readonly BlogPost[] }) {
 
   return (
     <>
-      <div className="sm:px-8 mt-8">
-        <div className="mx-auto max-w-2xl">
+      <div className="page-frame page-section-tight">
+        <div className="mx-auto max-w-3xl">
           <label className="relative block">
             <span className="sr-only">Search articles</span>
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[color:var(--muted-foreground)]" />
             <input
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search articles by title, topic, or keyword"
-              className="h-11 w-full rounded-xl border border-zinc-200 bg-white/55 pl-10 pr-4 text-sm text-zinc-900 outline-none backdrop-blur-sm transition focus-visible:border-zinc-400 focus-visible:ring-2 focus-visible:ring-zinc-300 dark:border-zinc-700 dark:bg-zinc-900/45 dark:text-white dark:focus-visible:border-zinc-500 dark:focus-visible:ring-zinc-700"
+              placeholder="Search notes by title or topic"
+              className="surface-utility h-12 w-full rounded-full pl-11 pr-4 text-sm text-[color:var(--foreground)] outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
           </label>
         </div>
       </div>
 
-      <div className="sm:px-8 mt-10">
-        <div className="mx-auto max-w-2xl">
-          <div className="flex flex-col gap-5">
+      <div className="page-frame mt-10">
+        <div className="mx-auto max-w-3xl">
+          <div className="grid auto-rows-fr gap-5 md:grid-cols-2">
             {visiblePosts.map((post) => (
               <article
                 key={post.slug}
-                className="rounded-2xl box-gen p-6 shadow ring-1 ring-zinc-200 transition-shadow hover:shadow-lg dark:ring-zinc-800"
+                className="surface-panel flex min-h-[17rem] flex-col rounded-[1.75rem] p-6 sm:p-7"
               >
-                <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
+                <div className="flex flex-wrap items-center gap-3 text-sm text-[color:var(--muted-foreground)]">
                   <time dateTime={post.publishedAt}>
                     {formatDate(post.publishedAt)}
                   </time>
                   <span>{post.readTime}</span>
                 </div>
-                <h2 className="mt-3 text-xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+                <h2 className="mt-4 max-w-[14ch] text-xl font-semibold tracking-[-0.04em] sm:text-2xl">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="transition hover:text-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:hover:text-zinc-200 dark:focus-visible:ring-zinc-500"
+                    className="transition hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {post.title}
                   </Link>
                 </h2>
-                <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  {post.summary}
+                <p className="mt-4 max-w-[34ch] text-sm leading-6 text-[color:var(--muted-foreground)] sm:text-base">
+                  {post.excerpt}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
+                  {post.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-zinc-200 bg-white/65 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900/55 dark:text-zinc-300"
+                      className="rounded-full border border-white/45 bg-white/56 px-3 py-1.5 text-[0.72rem] font-medium text-[color:var(--muted-foreground)] dark:border-white/8 dark:bg-white/[0.04]"
                     >
                       {tag}
                     </span>
                   ))}
+                </div>
+                <div className="mt-auto pt-5">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <span>Read note</span>
+                  </Link>
                 </div>
               </article>
             ))}
           </div>
 
           {visiblePosts.length === 0 ? (
-            <div className="mt-6 rounded-2xl box-gen p-8 text-center ring-1 ring-zinc-200 dark:ring-zinc-800">
-              <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+            <div className="surface-panel mt-6 rounded-[1.75rem] p-8 text-center">
+              <p className="text-sm leading-6 text-[color:var(--muted-foreground)]">
                 No articles matched that search yet. Try a broader term like
                 {" "}
-                <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                <span className="font-medium text-[color:var(--foreground)]">
                   testing
                 </span>
                 ,
                 {" "}
-                <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                <span className="font-medium text-[color:var(--foreground)]">
                   AI workflow
                 </span>
                 , or
                 {" "}
-                <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                <span className="font-medium text-[color:var(--foreground)]">
                   architecture
                 </span>
                 .

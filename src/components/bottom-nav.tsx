@@ -35,7 +35,7 @@ const iconMap = {
 
 /**
  * Magnifying container shared by every dock slot.
- * Width grows from 40 → 80 based on distance from cursor, peak at distance 0.
+ * Width grows from 40 → 72 within a fixed slot based on distance from cursor.
  */
 function DockMagnify({
   mouseX,
@@ -55,8 +55,12 @@ function DockMagnify({
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthSync = useTransform(distance, [-190, 0, 190], [40, 96, 40]);
-  const ySync = useTransform(distance, [-190, 0, 190], [0, -12, 0]);
+  const widthSync = useTransform(distance, [-190, 0, 190], [40, 72, 40]);
+  const ySync = useTransform(distance, [-190, 0, 190], [0, -6, 0]);
+  const zIndexSync = useTransform(distance, (value) => {
+    const ratio = Math.max(0, 1 - Math.abs(value) / 190);
+    return 10 + Math.round(ratio * 20);
+  });
   const width = useSpring(widthSync, {
     mass: 0.08,
     stiffness: 180,
@@ -74,10 +78,11 @@ function DockMagnify({
       style={{
         width: reduceMotion ? 40 : width,
         y: reduceMotion ? 0 : y,
+        zIndex: reduceMotion ? 10 : zIndexSync,
       }}
       className={cn(
-        "z-30 flex items-center justify-center aspect-square rounded-full",
-        "bg-neutral-200/70 dark:bg-neutral-700/50",
+        "relative flex aspect-square items-center justify-center rounded-full overflow-hidden",
+        "bg-white/68 dark:bg-white/[0.08]",
         className
       )}
     >
@@ -104,18 +109,18 @@ function DockIcon({
   reduceMotion: boolean;
 }) {
   const sharedClassName =
-    "block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500";
+    "block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
   const content = (
     <>
-      <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white dark:bg-zinc-200 dark:text-zinc-900 opacity-0 translate-y-1 pointer-events-none transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0">
+      <span className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[color:var(--foreground)] px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-[color:var(--primary-foreground)] opacity-0 translate-y-1 pointer-events-none transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0">
         {label}
       </span>
 
       <DockMagnify
         mouseX={mouseX}
         reduceMotion={reduceMotion}
-        className={cn(isActive && "ring-1 ring-zinc-300 dark:ring-zinc-600")}
+        className={cn(isActive && "ring-1 ring-[color:var(--surface-outline-strong)]")}
       >
         {icon === "avatar" ? (
           <Image
@@ -134,7 +139,7 @@ function DockIcon({
   );
 
   return (
-    <div className="group relative">
+    <div className="group relative flex w-[4.75rem] shrink-0 justify-center">
       {isExternal ? (
         <a
           href={href}
@@ -161,7 +166,7 @@ function DockSvgIcon({ name }: { name: string }) {
   const Icon = iconMap[name as keyof typeof iconMap];
   if (!Icon) return null;
   return (
-    <Icon className="w-1/2 h-1/2 transition fill-white dark:fill-neutral-600 dark:stroke-neutral-300 stroke-neutral-900" />
+    <Icon className="h-1/2 w-1/2 stroke-[color:var(--foreground)] transition" />
   );
 }
 
@@ -183,7 +188,7 @@ export function BottomNav() {
         onMouseLeave={() => {
           if (!prefersReducedMotion) mouseX.set(Infinity);
         }}
-        className="flex items-end h-16 gap-4 px-4 pb-2.5 mx-auto outline-0 rounded-2xl box-gen ring-1 ring-zinc-200 dark:ring-zinc-800"
+        className="surface-feature mx-auto flex h-[5.25rem] items-end gap-0 rounded-[1.5rem] px-3 pb-3 outline-0"
       >
         {navigationItems.map((item) => (
           <DockIcon
@@ -204,22 +209,22 @@ export function BottomNav() {
         ))}
 
         {/* Separator */}
-        <hr className="h-10 w-[1px] bg-neutral-300 dark:bg-neutral-700 mt-2.5 border-none" />
+        <hr className="mt-2.5 h-10 w-px border-none bg-[color:var(--grid-line)]" />
 
         {/* Theme toggle */}
-        <div className="group relative">
+        <div className="group relative flex w-[4.75rem] shrink-0 justify-center">
           <button
             type="button"
             onClick={toggleTheme}
-            className="block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500"
+            className="block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
           >
-            <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white dark:bg-zinc-200 dark:text-zinc-900 opacity-0 translate-y-1 pointer-events-none transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0">
+            <span className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[color:var(--foreground)] px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-[color:var(--primary-foreground)] opacity-0 translate-y-1 pointer-events-none transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0">
               {theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             </span>
             <DockMagnify mouseX={mouseX} reduceMotion={Boolean(prefersReducedMotion)}>
-              <Sun className="w-1/2 h-1/2 transition fill-white dark:fill-neutral-600 dark:hidden dark:stroke-neutral-300 stroke-neutral-900" />
-              <Moon className="hidden w-1/2 h-1/2 transition fill-white dark:fill-neutral-600 dark:block dark:stroke-neutral-300 stroke-neutral-900" />
+              <Sun className="h-1/2 w-1/2 stroke-[color:var(--foreground)] transition dark:hidden" />
+              <Moon className="hidden h-1/2 w-1/2 stroke-[color:var(--foreground)] transition dark:block" />
             </DockMagnify>
           </button>
         </div>

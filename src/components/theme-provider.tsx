@@ -1,5 +1,6 @@
 "use client";
 
+import { MotionConfig } from "motion/react";
 import {
   createContext,
   useContext,
@@ -86,7 +87,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeContext value={{ theme, setTheme, toggleTheme }}>
-      {children}
+      <MotionConfig
+        reducedMotion="user"
+        transition={{ type: "spring", stiffness: 170, damping: 22, mass: 0.65 }}
+      >
+        {children}
+      </MotionConfig>
     </ThemeContext>
   );
 }
