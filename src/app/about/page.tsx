@@ -75,7 +75,7 @@ const practiceCards = [
 const socialLinkLabels: Record<string, string> = {
   "GitHub (personal)": "GitHub",
   "GitHub (school)": "School GitHub",
-  "Email Tim": "Email Tim",
+  Projects: "Projects",
   "Open resume": "Resume",
 };
 

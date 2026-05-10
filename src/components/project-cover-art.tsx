@@ -83,7 +83,7 @@ export function ProjectCoverArt({
       className={cn(
         "relative overflow-hidden border shadow-[0_26px_56px_rgba(15,23,42,0.14)]",
         hasScreenshot
-          ? "border-white/18 shadow-[0_24px_52px_rgba(2,6,23,0.22)]"
+          ? "border-slate-900/10 shadow-[0_22px_48px_rgba(15,23,42,0.12)] dark:border-white/10 dark:shadow-[0_24px_52px_rgba(2,6,23,0.2)]"
           : "border-white/65",
         isHero ? "min-h-[22rem] rounded-[2rem] sm:min-h-[28rem]" : "min-h-[16rem] rounded-[1.75rem]",
         theme.shellClassName,
@@ -100,21 +100,12 @@ export function ProjectCoverArt({
             className={cn(
               "object-cover",
               isHero
-                ? "object-[center_12%] brightness-[0.86] saturate-[0.92]"
-                : "object-[center_12%] brightness-[0.8] saturate-[0.88]"
+                ? "object-[center_12%] dark:brightness-[0.96] dark:saturate-[0.96]"
+                : "object-[center_12%] dark:brightness-[0.94] dark:saturate-[0.94]"
             )}
             priority={project.slug === "food-delivery-platform"}
           />
-          <div
-            className={cn(
-              "absolute inset-0",
-              isHero
-                ? "bg-[linear-gradient(180deg,rgba(2,6,23,0.42),rgba(2,6,23,0.18)_26%,rgba(2,6,23,0.08)_54%,rgba(2,6,23,0.18)_100%)]"
-                : "bg-[linear-gradient(180deg,rgba(2,6,23,0.52),rgba(2,6,23,0.22)_28%,rgba(2,6,23,0.08)_58%,rgba(2,6,23,0.16)_100%)]"
-            )}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_26%)]" />
-          <div className="absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(2,6,23,0.34),rgba(2,6,23,0.08)_72%,transparent)]" />
+          <div className="absolute inset-0 hidden dark:block dark:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.04),transparent_28%)]" />
         </>
       ) : (
         <>

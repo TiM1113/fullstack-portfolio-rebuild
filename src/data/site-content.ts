@@ -6,7 +6,11 @@ export type NavigationIconName =
   | "layers"
   | "resume";
 
-export type SocialIconName = "github" | "githubSchool" | "mail" | "resume";
+export type SocialIconName =
+  | "github"
+  | "githubSchool"
+  | "code"
+  | "resume";
 export type ExperienceIconName = "briefcase" | "graduation" | "palette";
 
 export interface NavigationItem {
@@ -97,6 +101,9 @@ export interface ProjectMetric {
 
 export interface HomeHero {
   kicker: string;
+  name: string;
+  alias: string;
+  role: string;
   title: string;
   summary: string;
   location: string;
@@ -140,8 +147,6 @@ export const siteConfig = {
   description:
     "Personal portfolio for Tian (Tim) Yuan, a full-stack software engineer in Adelaide focused on modern product delivery, AI-native workflows, and production-grade systems.",
   location: "Adelaide, South Australia",
-  phone: "+61 412 733 130",
-  email: "yuantian1113@gmail.com",
   resumePath: "/cv/Tim-Yuan-CV.pdf",
   sourceRepo:
     "https://github.com/TiM1113/fullstack-portfolio-rebuild",
@@ -176,9 +181,9 @@ export const socialLinks: readonly SocialLink[] = [
     icon: "githubSchool",
   },
   {
-    href: `mailto:${siteConfig.email}`,
-    label: "Email Tim",
-    icon: "mail",
+    href: "/projects",
+    label: "Projects",
+    icon: "code",
   },
   {
     href: siteConfig.resumePath,
@@ -661,17 +666,20 @@ export const stackCategories: readonly StackCategory[] = [
 export const contactCard = {
   heading:
     "Building production-minded products with clear UX, strong feedback loops, and AI-assisted delivery that can still be trusted.",
-  primaryLabel: "Send an email",
-  primaryHref: `mailto:${siteConfig.email}`,
-  secondaryLabel: "Browse projects",
-  secondaryHref: "/projects",
+  primaryLabel: "Browse projects",
+  primaryHref: "/projects",
+  secondaryLabel: "Open resume",
+  secondaryHref: siteConfig.resumePath,
 } as const;
 
 export const homeHero: HomeHero = {
-  kicker: "Tian (Tim) Yuan · Software Engineer",
-  title: "I build AI-native, production-minded products for the web.",
+  kicker: "Adelaide · Full Australian work rights",
+  name: "Tian Yuan",
+  alias: "Tim",
+  role: "AI-Native Software Engineer · Full-Stack Developer",
+  title: "I build AI-native, production-ready full-stack systems.",
   summary:
-    "Currently based in Adelaide, I build full-stack products, tighten delivery workflows with AI, and focus on the parts that still need to survive after launch: architecture, evidence, operations, and trust.",
+    "Focused on product delivery, agent workflows, architecture, testing, observability, and reliable software after launch.",
   location: "Adelaide, South Australia",
   availability: siteConfig.availability,
   tags: [
@@ -732,8 +740,8 @@ export const contactStrip: ContactStrip = {
   eyebrow: "Available",
   heading: "Open to software engineering roles, contract builds, and AI workflow consulting.",
   body: "If the work needs production judgment, full-stack delivery, and AI systems that remain accountable after launch, I am interested.",
-  primaryLabel: "Email Tim",
-  primaryHref: `mailto:${siteConfig.email}`,
+  primaryLabel: "Browse projects",
+  primaryHref: "/projects",
   secondaryLabel: "View GitHub",
   secondaryHref: "https://github.com/TiM1113",
 } as const;

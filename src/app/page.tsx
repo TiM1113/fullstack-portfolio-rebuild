@@ -91,7 +91,6 @@ export default function Home() {
     "@type": "Person",
     name: siteConfig.fullName,
     jobTitle: siteConfig.title,
-    email: siteConfig.email,
     url: siteConfig.sourceRepo,
     homeLocation: {
       "@type": "Place",
@@ -111,15 +110,23 @@ export default function Home() {
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="surface-contrast rounded-[2rem] p-6 sm:p-8">
               <p className="page-kicker">{homeHero.kicker}</p>
-              <h1 className="mt-5 max-w-md font-heading text-4xl font-semibold leading-[1.02] tracking-[-0.06em] sm:text-5xl lg:text-[3.9rem]">
+              <p className="mt-5 flex flex-wrap items-end gap-x-3 gap-y-2 font-heading text-[2rem] font-semibold tracking-[-0.05em] text-white sm:text-[2.4rem]">
+                <span>{homeHero.name}</span>
+                <span className="pb-1 text-[0.52em] font-medium tracking-[-0.02em] text-white/56">
+                  {homeHero.alias}
+                </span>
+              </p>
+              <p className="mt-2 max-w-md text-base font-medium leading-7 text-white/82 sm:text-[1.08rem]">
+                {homeHero.role}
+              </p>
+              <h1 className="mt-5 max-w-md font-heading text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-white sm:text-5xl lg:text-[3.55rem]">
                 {homeHero.title}
               </h1>
               <p
                 data-muted="true"
                 className="mt-6 max-w-sm text-base leading-7 sm:text-[1.02rem] sm:leading-8"
               >
-                Adelaide-based. I build full-stack products, tighten delivery workflows
-                with AI, and focus on the parts that still need to hold up after launch.
+                {homeHero.summary}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -446,12 +453,12 @@ export default function Home() {
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                <a
-                  href={`mailto:${siteConfig.email}`}
+                <Link
+                  href="/projects"
                   className="button-primary w-full ring-ring/60"
                 >
-                  Email Tim
-                </a>
+                  Browse projects
+                </Link>
                 <a
                   href="https://github.com/TiM1113"
                   target="_blank"

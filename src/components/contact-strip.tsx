@@ -27,8 +27,7 @@ export function ContactStrip() {
                 Let&apos;s build something that still reads well after the launch week chaos.
               </p>
               <p data-muted="true" className="mt-4 text-sm leading-6">
-                Email is the fastest path for roles, contract work, or anything that needs product judgment and delivery
-                discipline.
+                Start with the project archive or GitHub if you want to review the work before opening a conversation.
               </p>
             </div>
 

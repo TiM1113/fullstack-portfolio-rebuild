@@ -10,7 +10,16 @@ export function HomeHero() {
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)] lg:items-start">
         <div>
           <p className="page-kicker">{homeHero.kicker}</p>
-          <h1 className="page-title mt-4 max-w-4xl">{homeHero.title}</h1>
+          <p className="mt-4 flex flex-wrap items-end gap-x-3 gap-y-2 font-heading text-[2rem] font-semibold tracking-[-0.05em] text-[color:var(--foreground)] sm:text-[2.4rem]">
+            <span>{homeHero.name}</span>
+            <span className="pb-1 text-[0.52em] font-medium tracking-[-0.02em] text-[color:var(--muted-foreground)]">
+              {homeHero.alias}
+            </span>
+          </p>
+          <p className="mt-2 max-w-2xl text-base font-medium leading-7 text-[color:var(--muted-foreground)] sm:text-[1.08rem]">
+            {homeHero.role}
+          </p>
+          <h1 className="page-title mt-5 max-w-4xl">{homeHero.title}</h1>
           <p className="page-copy mt-6 max-w-2xl">{homeHero.summary}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
